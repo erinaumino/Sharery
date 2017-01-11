@@ -7,23 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0ACE7381F9172DAA6836DB48 /* Pods_Sharery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A01473D5BC68AFA6CC18BE /* Pods_Sharery.framework */; };
 		80205DDD1E265A16004AE317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80205DDC1E265A16004AE317 /* AppDelegate.swift */; };
-		80205DDF1E265A16004AE317 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80205DDE1E265A16004AE317 /* FirstViewController.swift */; };
-		80205DE11E265A16004AE317 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80205DE01E265A16004AE317 /* SecondViewController.swift */; };
+		80205DDF1E265A16004AE317 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80205DDE1E265A16004AE317 /* DiaryViewController.swift */; };
+		80205DE11E265A16004AE317 /* WriteDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80205DE01E265A16004AE317 /* WriteDiaryViewController.swift */; };
 		80205DE41E265A16004AE317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80205DE21E265A16004AE317 /* Main.storyboard */; };
 		80205DE61E265A16004AE317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80205DE51E265A16004AE317 /* Assets.xcassets */; };
 		80205DE91E265A16004AE317 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80205DE71E265A16004AE317 /* LaunchScreen.storyboard */; };
+		80205DF11E265ACE004AE317 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80205DF01E265ACE004AE317 /* SettingViewController.swift */; };
+		80205DF31E266A7B004AE317 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80205DF21E266A7B004AE317 /* LoginViewController.swift */; };
+		80205DF51E266A98004AE317 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80205DF41E266A98004AE317 /* CreateAccountViewController.swift */; };
+		80205DF71E267554004AE317 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80205DF61E267554004AE317 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		40704934D8959015A0C697AF /* Pods-Sharery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sharery/Pods-Sharery.release.xcconfig"; sourceTree = "<group>"; };
+		76A01473D5BC68AFA6CC18BE /* Pods_Sharery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sharery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80205DD91E265A16004AE317 /* Sharery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80205DDC1E265A16004AE317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		80205DDE1E265A16004AE317 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		80205DE01E265A16004AE317 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		80205DDE1E265A16004AE317 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
+		80205DE01E265A16004AE317 /* WriteDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDiaryViewController.swift; sourceTree = "<group>"; };
 		80205DE31E265A16004AE317 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		80205DE51E265A16004AE317 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80205DE81E265A16004AE317 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80205DEA1E265A16004AE317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80205DF01E265ACE004AE317 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		80205DF21E266A7B004AE317 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		80205DF41E266A98004AE317 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		80205DF61E267554004AE317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		90C58E7DC861D53208AA475E /* Pods-Sharery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sharery/Pods-Sharery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ACE7381F9172DAA6836DB48 /* Pods_Sharery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BAEA880807362AB1F3D025C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90C58E7DC861D53208AA475E /* Pods-Sharery.debug.xcconfig */,
+				40704934D8959015A0C697AF /* Pods-Sharery.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		75512886600BAF6C55708080 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76A01473D5BC68AFA6CC18BE /* Pods_Sharery.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		80205DD01E265A16004AE317 = {
 			isa = PBXGroup;
 			children = (
 				80205DDB1E265A16004AE317 /* Sharery */,
 				80205DDA1E265A16004AE317 /* Products */,
+				1BAEA880807362AB1F3D025C /* Pods */,
+				75512886600BAF6C55708080 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,10 +89,14 @@
 			isa = PBXGroup;
 			children = (
 				80205DDC1E265A16004AE317 /* AppDelegate.swift */,
-				80205DDE1E265A16004AE317 /* FirstViewController.swift */,
-				80205DE01E265A16004AE317 /* SecondViewController.swift */,
+				80205DDE1E265A16004AE317 /* DiaryViewController.swift */,
+				80205DE01E265A16004AE317 /* WriteDiaryViewController.swift */,
 				80205DE21E265A16004AE317 /* Main.storyboard */,
+				80205DF21E266A7B004AE317 /* LoginViewController.swift */,
+				80205DF41E266A98004AE317 /* CreateAccountViewController.swift */,
+				80205DF01E265ACE004AE317 /* SettingViewController.swift */,
 				80205DE51E265A16004AE317 /* Assets.xcassets */,
+				80205DF61E267554004AE317 /* GoogleService-Info.plist */,
 				80205DE71E265A16004AE317 /* LaunchScreen.storyboard */,
 				80205DEA1E265A16004AE317 /* Info.plist */,
 			);
@@ -74,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80205DED1E265A16004AE317 /* Build configuration list for PBXNativeTarget "Sharery" */;
 			buildPhases = (
+				6478EA5505E6DB0FAE813144 /* [CP] Check Pods Manifest.lock */,
 				80205DD51E265A16004AE317 /* Sources */,
 				80205DD61E265A16004AE317 /* Frameworks */,
 				80205DD71E265A16004AE317 /* Resources */,
+				BCC665771446E198561CA722 /* [CP] Embed Pods Frameworks */,
+				59FAF2CD3D8017C9F4B70B08 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -127,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80205DE91E265A16004AE317 /* LaunchScreen.storyboard in Resources */,
+				80205DF71E267554004AE317 /* GoogleService-Info.plist in Resources */,
 				80205DE61E265A16004AE317 /* Assets.xcassets in Resources */,
 				80205DE41E265A16004AE317 /* Main.storyboard in Resources */,
 			);
@@ -134,14 +174,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		59FAF2CD3D8017C9F4B70B08 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sharery/Pods-Sharery-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6478EA5505E6DB0FAE813144 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BCC665771446E198561CA722 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sharery/Pods-Sharery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		80205DD51E265A16004AE317 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80205DE11E265A16004AE317 /* SecondViewController.swift in Sources */,
+				80205DF51E266A98004AE317 /* CreateAccountViewController.swift in Sources */,
+				80205DE11E265A16004AE317 /* WriteDiaryViewController.swift in Sources */,
 				80205DDD1E265A16004AE317 /* AppDelegate.swift in Sources */,
-				80205DDF1E265A16004AE317 /* FirstViewController.swift in Sources */,
+				80205DDF1E265A16004AE317 /* DiaryViewController.swift in Sources */,
+				80205DF31E266A7B004AE317 /* LoginViewController.swift in Sources */,
+				80205DF11E265ACE004AE317 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +351,7 @@
 		};
 		80205DEE1E265A16004AE317 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90C58E7DC861D53208AA475E /* Pods-Sharery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Sharery/Info.plist;
@@ -272,6 +364,7 @@
 		};
 		80205DEF1E265A16004AE317 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40704934D8959015A0C697AF /* Pods-Sharery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Sharery/Info.plist;
@@ -301,6 +394,7 @@
 				80205DEF1E265A16004AE317 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

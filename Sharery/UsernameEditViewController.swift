@@ -1,16 +1,19 @@
 //
-//  SettingViewController.swift
+//  UsernameEditViewController.swift
 //  Sharery
 //
-//  Created by 海野恵凜那 on 2017/01/11.
+//  Created by 海野恵凜那 on 2017/01/16.
 //  Copyright © 2017年 erina.umino. All rights reserved.
 //
 
 import UIKit
 
-class SettingViewController: UIViewController {
+class UsernameEditViewController: UIViewController {
+    @IBOutlet weak var newusernameTextField: UITextField!
 
-    @IBOutlet weak var profilephoto: UIImageView!
+    @IBAction func editButton(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

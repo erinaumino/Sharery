@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0ACE7381F9172DAA6836DB48 /* Pods_Sharery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A01473D5BC68AFA6CC18BE /* Pods_Sharery.framework */; };
+		8000A7971E2CCE3A0000B340 /* MailAddressEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8000A7961E2CCE3A0000B340 /* MailAddressEditViewController.swift */; };
+		8000A7991E2CCEA30000B340 /* PassWordEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8000A7981E2CCEA30000B340 /* PassWordEditViewController.swift */; };
+		8000A79B1E2CCEB80000B340 /* UsernameEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8000A79A1E2CCEB80000B340 /* UsernameEditViewController.swift */; };
+		8000A79D1E2CCED30000B340 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8000A79C1E2CCED30000B340 /* ProfileEditViewController.swift */; };
+		8000A79F1E2CCFC00000B340 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A79E1E2CCFC00000B340 /* CoreBluetooth.framework */; };
 		80205DDD1E265A16004AE317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80205DDC1E265A16004AE317 /* AppDelegate.swift */; };
 		80205DDF1E265A16004AE317 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80205DDE1E265A16004AE317 /* DiaryViewController.swift */; };
 		80205DE11E265A16004AE317 /* WriteDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80205DE01E265A16004AE317 /* WriteDiaryViewController.swift */; };
@@ -23,6 +28,11 @@
 /* Begin PBXFileReference section */
 		40704934D8959015A0C697AF /* Pods-Sharery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sharery/Pods-Sharery.release.xcconfig"; sourceTree = "<group>"; };
 		76A01473D5BC68AFA6CC18BE /* Pods_Sharery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sharery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8000A7961E2CCE3A0000B340 /* MailAddressEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailAddressEditViewController.swift; sourceTree = "<group>"; };
+		8000A7981E2CCEA30000B340 /* PassWordEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassWordEditViewController.swift; sourceTree = "<group>"; };
+		8000A79A1E2CCEB80000B340 /* UsernameEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameEditViewController.swift; sourceTree = "<group>"; };
+		8000A79C1E2CCED30000B340 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		8000A79E1E2CCFC00000B340 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		80205DD91E265A16004AE317 /* Sharery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80205DDC1E265A16004AE317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80205DDE1E265A16004AE317 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8000A79F1E2CCFC00000B340 /* CoreBluetooth.framework in Frameworks */,
 				0ACE7381F9172DAA6836DB48 /* Pods_Sharery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,6 +73,7 @@
 		75512886600BAF6C55708080 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8000A79E1E2CCFC00000B340 /* CoreBluetooth.framework */,
 				76A01473D5BC68AFA6CC18BE /* Pods_Sharery.framework */,
 			);
 			name = Frameworks;
@@ -92,6 +104,10 @@
 				80205DDE1E265A16004AE317 /* DiaryViewController.swift */,
 				80205DE01E265A16004AE317 /* WriteDiaryViewController.swift */,
 				80205DE21E265A16004AE317 /* Main.storyboard */,
+				8000A7981E2CCEA30000B340 /* PassWordEditViewController.swift */,
+				8000A79A1E2CCEB80000B340 /* UsernameEditViewController.swift */,
+				8000A79C1E2CCED30000B340 /* ProfileEditViewController.swift */,
+				8000A7961E2CCE3A0000B340 /* MailAddressEditViewController.swift */,
 				80205DF21E266A7B004AE317 /* LoginViewController.swift */,
 				80205DF41E266A98004AE317 /* CreateAccountViewController.swift */,
 				80205DF01E265ACE004AE317 /* SettingViewController.swift */,
@@ -233,6 +249,10 @@
 				80205DDF1E265A16004AE317 /* DiaryViewController.swift in Sources */,
 				80205DF31E266A7B004AE317 /* LoginViewController.swift in Sources */,
 				80205DF11E265ACE004AE317 /* SettingViewController.swift in Sources */,
+				8000A79D1E2CCED30000B340 /* ProfileEditViewController.swift in Sources */,
+				8000A7991E2CCEA30000B340 /* PassWordEditViewController.swift in Sources */,
+				8000A79B1E2CCEB80000B340 /* UsernameEditViewController.swift in Sources */,
+				8000A7971E2CCE3A0000B340 /* MailAddressEditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

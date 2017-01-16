@@ -9,7 +9,9 @@
 import UIKit
 
 class WriteDiaryViewController: UIViewController {
-
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var diaryTextview: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

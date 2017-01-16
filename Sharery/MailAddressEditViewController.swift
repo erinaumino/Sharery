@@ -1,16 +1,21 @@
 //
-//  SettingViewController.swift
+//  MailAddressEditViewController.swift
 //  Sharery
 //
-//  Created by 海野恵凜那 on 2017/01/11.
+//  Created by 海野恵凜那 on 2017/01/16.
 //  Copyright © 2017年 erina.umino. All rights reserved.
 //
 
 import UIKit
 
-class SettingViewController: UIViewController {
-
-    @IBOutlet weak var profilephoto: UIImageView!
+class MailAddressEditViewController: UIViewController {
+    @IBOutlet weak var mailaddressTextField: UITextField!
+    @IBOutlet weak var newmailaddressTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBAction func editButton(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

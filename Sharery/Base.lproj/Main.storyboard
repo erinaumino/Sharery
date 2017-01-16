@@ -218,9 +218,7 @@
                                 </constraints>
                                 <color key="barTintColor" red="0.45882352939999999" green="0.80392156859999997" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="メールアドレスの変更" id="2VL-sM-zfG">
-                                        <barButtonItem key="backBarButtonItem" title="戻る" id="ISs-Qa-YRk"/>
-                                    </navigationItem>
+                                    <navigationItem title="メールアドレスの変更" id="2VL-sM-zfG"/>
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="旧メールアドレス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GE2-oZ-gnB">
@@ -387,6 +385,9 @@
                                 <state key="normal" title="ログアウト">
                                     <color key="titleColor" red="0.45882352939999999" green="0.80392156859999997" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="logoutButton:" destination="ofV-Po-AmF" eventType="touchUpInside" id="2ks-qL-Yxz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zS-3R-sEQ">
                                 <rect key="frame" x="325" y="302" width="50" height="40"/>
@@ -516,7 +517,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="set" selectedImage="set_edit_1" id="4KF-az-ofd"/>
                     <connections>
+                        <outlet property="mailaddressLabel" destination="YlB-6Q-dEB" id="7GE-b2-p7r"/>
                         <outlet property="profilephoto" destination="b8J-J2-UfP" id="AOT-Ai-kLe"/>
+                        <outlet property="usernameLabel" destination="Fuf-2T-XHI" id="oi1-P9-Llg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Czp-Pl-lBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -769,6 +772,9 @@
                                     <navigationItem title="Title" id="hp5-A5-YZV">
                                         <barButtonItem key="leftBarButtonItem" systemItem="camera" id="Zck-Hn-e89">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="camera:" destination="8rJ-Kc-sve" id="z9o-XQ-gse"/>
+                                            </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="mZq-pm-K0g">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

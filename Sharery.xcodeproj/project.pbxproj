@@ -13,6 +13,21 @@
 		8000A79B1E2CCEB80000B340 /* UsernameEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8000A79A1E2CCEB80000B340 /* UsernameEditViewController.swift */; };
 		8000A79D1E2CCED30000B340 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8000A79C1E2CCED30000B340 /* ProfileEditViewController.swift */; };
 		8000A79F1E2CCFC00000B340 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A79E1E2CCFC00000B340 /* CoreBluetooth.framework */; };
+		8000A7A71E2D06E90000B340 /* AdobeCreativeSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A7A01E2D06AB0000B340 /* AdobeCreativeSDKCore.framework */; };
+		8000A7A81E2D06E90000B340 /* AdobeCreativeSDKCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A7A01E2D06AB0000B340 /* AdobeCreativeSDKCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8000A7A91E2D07290000B340 /* AdobeCreativeSDKImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A7A21E2D06C30000B340 /* AdobeCreativeSDKImage.framework */; };
+		8000A7AA1E2D07290000B340 /* AdobeCreativeSDKImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A7A21E2D06C30000B340 /* AdobeCreativeSDKImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8000A7AC1E2D075D0000B340 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A7AB1E2D075D0000B340 /* libc++.tbd */; };
+		8000A7AE1E2D07690000B340 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A7AD1E2D07690000B340 /* libz.tbd */; };
+		8000A7B01E2D07760000B340 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A7AF1E2D07760000B340 /* libz.1.2.5.tbd */; };
+		8000A7B21E2D07830000B340 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A7B11E2D07830000B340 /* libsqlite3.0.tbd */; };
+		8000A7B41E2D078D0000B340 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A7B31E2D078D0000B340 /* MobileCoreServices.framework */; };
+		8000A7B61E2D07990000B340 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A7B51E2D07990000B340 /* SystemConfiguration.framework */; };
+		8000A7B81E2D07A50000B340 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A7B71E2D07A50000B340 /* Accelerate.framework */; };
+		8000A7BA1E2D07B00000B340 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A7B91E2D07B00000B340 /* CoreData.framework */; };
+		8000A7BC1E2D07BB0000B340 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A7BB1E2D07BB0000B340 /* MessageUI.framework */; };
+		8000A7BE1E2D07C50000B340 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A7BD1E2D07C50000B340 /* OpenGLES.framework */; };
+		8000A7C01E2D07D00000B340 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8000A7BF1E2D07D00000B340 /* QuartzCore.framework */; };
 		80205DDD1E265A16004AE317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80205DDC1E265A16004AE317 /* AppDelegate.swift */; };
 		80205DDF1E265A16004AE317 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80205DDE1E265A16004AE317 /* DiaryViewController.swift */; };
 		80205DE11E265A16004AE317 /* WriteDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80205DE01E265A16004AE317 /* WriteDiaryViewController.swift */; };
@@ -25,6 +40,21 @@
 		80205DF71E267554004AE317 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80205DF61E267554004AE317 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8000A7A61E2D06E50000B340 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8000A7AA1E2D07290000B340 /* AdobeCreativeSDKImage.framework in Embed Frameworks */,
+				8000A7A81E2D06E90000B340 /* AdobeCreativeSDKCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		40704934D8959015A0C697AF /* Pods-Sharery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sharery/Pods-Sharery.release.xcconfig"; sourceTree = "<group>"; };
 		76A01473D5BC68AFA6CC18BE /* Pods_Sharery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sharery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,6 +63,19 @@
 		8000A79A1E2CCEB80000B340 /* UsernameEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameEditViewController.swift; sourceTree = "<group>"; };
 		8000A79C1E2CCED30000B340 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		8000A79E1E2CCFC00000B340 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		8000A7A01E2D06AB0000B340 /* AdobeCreativeSDKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdobeCreativeSDKCore.framework; sourceTree = "<group>"; };
+		8000A7A21E2D06C30000B340 /* AdobeCreativeSDKImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdobeCreativeSDKImage.framework; sourceTree = "<group>"; };
+		8000A7AB1E2D075D0000B340 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		8000A7AD1E2D07690000B340 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		8000A7AF1E2D07760000B340 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		8000A7B11E2D07830000B340 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		8000A7B31E2D078D0000B340 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		8000A7B51E2D07990000B340 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8000A7B71E2D07A50000B340 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		8000A7B91E2D07B00000B340 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8000A7BB1E2D07BB0000B340 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		8000A7BD1E2D07C50000B340 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		8000A7BF1E2D07D00000B340 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		80205DD91E265A16004AE317 /* Sharery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80205DDC1E265A16004AE317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80205DDE1E265A16004AE317 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +88,7 @@
 		80205DF21E266A7B004AE317 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		80205DF41E266A98004AE317 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		80205DF61E267554004AE317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8094B6051E2D0B2800ABC0FE /* Sharery-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sharery-Bridging-Header.h"; sourceTree = "<group>"; };
 		90C58E7DC861D53208AA475E /* Pods-Sharery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sharery/Pods-Sharery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,7 +97,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8000A7C01E2D07D00000B340 /* QuartzCore.framework in Frameworks */,
+				8000A7BE1E2D07C50000B340 /* OpenGLES.framework in Frameworks */,
+				8000A7BC1E2D07BB0000B340 /* MessageUI.framework in Frameworks */,
+				8000A7BA1E2D07B00000B340 /* CoreData.framework in Frameworks */,
+				8000A7B81E2D07A50000B340 /* Accelerate.framework in Frameworks */,
+				8000A7B61E2D07990000B340 /* SystemConfiguration.framework in Frameworks */,
+				8000A7B41E2D078D0000B340 /* MobileCoreServices.framework in Frameworks */,
+				8000A7B21E2D07830000B340 /* libsqlite3.0.tbd in Frameworks */,
+				8000A7B01E2D07760000B340 /* libz.1.2.5.tbd in Frameworks */,
+				8000A7AE1E2D07690000B340 /* libz.tbd in Frameworks */,
+				8000A7AC1E2D075D0000B340 /* libc++.tbd in Frameworks */,
 				8000A79F1E2CCFC00000B340 /* CoreBluetooth.framework in Frameworks */,
+				8000A7A71E2D06E90000B340 /* AdobeCreativeSDKCore.framework in Frameworks */,
+				8000A7A91E2D07290000B340 /* AdobeCreativeSDKImage.framework in Frameworks */,
 				0ACE7381F9172DAA6836DB48 /* Pods_Sharery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +130,17 @@
 		75512886600BAF6C55708080 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8000A7BF1E2D07D00000B340 /* QuartzCore.framework */,
+				8000A7BD1E2D07C50000B340 /* OpenGLES.framework */,
+				8000A7BB1E2D07BB0000B340 /* MessageUI.framework */,
+				8000A7B91E2D07B00000B340 /* CoreData.framework */,
+				8000A7B71E2D07A50000B340 /* Accelerate.framework */,
+				8000A7B51E2D07990000B340 /* SystemConfiguration.framework */,
+				8000A7B31E2D078D0000B340 /* MobileCoreServices.framework */,
+				8000A7B11E2D07830000B340 /* libsqlite3.0.tbd */,
+				8000A7AF1E2D07760000B340 /* libz.1.2.5.tbd */,
+				8000A7AD1E2D07690000B340 /* libz.tbd */,
+				8000A7AB1E2D075D0000B340 /* libc++.tbd */,
 				8000A79E1E2CCFC00000B340 /* CoreBluetooth.framework */,
 				76A01473D5BC68AFA6CC18BE /* Pods_Sharery.framework */,
 			);
@@ -100,6 +168,7 @@
 		80205DDB1E265A16004AE317 /* Sharery */ = {
 			isa = PBXGroup;
 			children = (
+				8094B6051E2D0B2800ABC0FE /* Sharery-Bridging-Header.h */,
 				80205DDC1E265A16004AE317 /* AppDelegate.swift */,
 				80205DDE1E265A16004AE317 /* DiaryViewController.swift */,
 				80205DE01E265A16004AE317 /* WriteDiaryViewController.swift */,
@@ -115,6 +184,8 @@
 				80205DF61E267554004AE317 /* GoogleService-Info.plist */,
 				80205DE71E265A16004AE317 /* LaunchScreen.storyboard */,
 				80205DEA1E265A16004AE317 /* Info.plist */,
+				8000A7A21E2D06C30000B340 /* AdobeCreativeSDKImage.framework */,
+				8000A7A01E2D06AB0000B340 /* AdobeCreativeSDKCore.framework */,
 			);
 			path = Sharery;
 			sourceTree = "<group>";
@@ -132,6 +203,8 @@
 				80205DD71E265A16004AE317 /* Resources */,
 				BCC665771446E198561CA722 /* [CP] Embed Pods Frameworks */,
 				59FAF2CD3D8017C9F4B70B08 /* [CP] Copy Pods Resources */,
+				8000A7A61E2D06E50000B340 /* Embed Frameworks */,
+				8000A7C11E2D07DE0000B340 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -220,6 +293,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		8000A7C11E2D07DE0000B340 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/AdobeCreativeSDKCore.framework/strip-frameworks.sh\"";
 		};
 		BCC665771446E198561CA722 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -374,10 +460,15 @@
 			baseConfigurationReference = 90C58E7DC861D53208AA475E /* Pods-Sharery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sharery",
+				);
 				INFOPLIST_FILE = Sharery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.erina.umino.Sharery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sharery/Sharery-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -387,10 +478,15 @@
 			baseConfigurationReference = 40704934D8959015A0C697AF /* Pods-Sharery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sharery",
+				);
 				INFOPLIST_FILE = Sharery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.erina.umino.Sharery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sharery/Sharery-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

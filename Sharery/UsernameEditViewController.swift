@@ -7,17 +7,56 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import SVProgressHUD
 
 class UsernameEditViewController: UIViewController {
     @IBOutlet weak var newusernameTextField: UITextField!
 
     @IBAction func editButton(_ sender: Any) {
+        if let displayName = newusernameTextField.text {
+            
+            // 表示名が入力されていない時はHUDを出して何もしない
+            if displayName.characters.isEmpty {
+                SVProgressHUD.showError(withStatus: "表示名を入力して下さい")
+                return
+            }
+            
+            // 表示名を設定する
+            let user = FIRAuth.auth()?.currentUser
+            if let user = user {
+                let changeRequest = user.profileChangeRequest()
+                changeRequest.displayName = displayName
+                changeRequest.commitChanges { error in
+                    if let error = error {
+                        print("DEBUG_PRINT: " + error.localizedDescription)
+                    }
+                    print("DEBUG_PRINT: [displayName = \(user.displayName)]の設定に成功しました。")
+                    
+                    // HUDで完了を知らせる
+                    SVProgressHUD.showSuccess(withStatus: "表示名を変更しました")
+                    
+                    let storyboard: UIStoryboard = self.storyboard!
+                    let nextView = storyboard.instantiateViewController(withIdentifier: "Setting") as! SettingViewController
+                    self.present(nextView, animated: true, completion: nil)
+
+                }
+            } else {
+                print("DEBUG_PRINT: displayNameの設定に失敗しました。")
+            }
+        }
+        // キーボードを閉じる
+        self.view.endEditing(true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // 表示名を取得してTextFieldに設定する
+        let user = FIRAuth.auth()?.currentUser
+        if let user = user {
+            newusernameTextField.text = user.displayName
+        }
     }
 
     override func didReceiveMemoryWarning() {

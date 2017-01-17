@@ -16,7 +16,7 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate,UI
     @IBOutlet weak var mailaddressLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     
-    @IBAction func photoedit(_ sender: Any) {
+    @IBAction func photoeditButton(_ sender: Any) {
         // アラートを作成
         let alert = UIAlertController(
             title: "",
@@ -85,11 +85,7 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate,UI
         //postViewController.image = image
         //present(postViewController, animated: true, completion: nil)
         let user = FIRAuth.auth()?.currentUser
-        if let user = user {
-            let changeRequest = user.profileChangeRequest()
-            //changeRequest.photo = image
-            //changeRequest.commitChanges
-        }
+
 
     }
     

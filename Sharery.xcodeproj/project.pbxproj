@@ -39,6 +39,12 @@
 		80205DF51E266A98004AE317 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80205DF41E266A98004AE317 /* CreateAccountViewController.swift */; };
 		80205DF71E267554004AE317 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80205DF61E267554004AE317 /* GoogleService-Info.plist */; };
 		8094B6071E2DE0C900ABC0FE /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8094B6061E2DE0C900ABC0FE /* Const.swift */; };
+		8094B6091E2E610C00ABC0FE /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8094B6081E2E610C00ABC0FE /* PostData.swift */; };
+		8094B60C1E2E620C00ABC0FE /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8094B60A1E2E620C00ABC0FE /* PostTableViewCell.swift */; };
+		8094B60D1E2E620C00ABC0FE /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8094B60B1E2E620C00ABC0FE /* PostTableViewCell.xib */; };
+		8094B60F1E2E6FFE00ABC0FE /* ProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8094B60E1E2E6FFE00ABC0FE /* ProfileData.swift */; };
+		8094B6111E2E985A00ABC0FE /* ShowDairyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8094B6101E2E985A00ABC0FE /* ShowDairyViewController.swift */; };
+		8094B6131E2E987A00ABC0FE /* UserAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8094B6121E2E987A00ABC0FE /* UserAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -91,6 +97,12 @@
 		80205DF61E267554004AE317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8094B6051E2D0B2800ABC0FE /* Sharery-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sharery-Bridging-Header.h"; sourceTree = "<group>"; };
 		8094B6061E2DE0C900ABC0FE /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		8094B6081E2E610C00ABC0FE /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		8094B60A1E2E620C00ABC0FE /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		8094B60B1E2E620C00ABC0FE /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		8094B60E1E2E6FFE00ABC0FE /* ProfileData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileData.swift; sourceTree = "<group>"; };
+		8094B6101E2E985A00ABC0FE /* ShowDairyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDairyViewController.swift; sourceTree = "<group>"; };
+		8094B6121E2E987A00ABC0FE /* UserAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewController.swift; sourceTree = "<group>"; };
 		90C58E7DC861D53208AA475E /* Pods-Sharery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sharery/Pods-Sharery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +188,12 @@
 				80205DE01E265A16004AE317 /* WriteDiaryViewController.swift */,
 				8094B6061E2DE0C900ABC0FE /* Const.swift */,
 				80205DE21E265A16004AE317 /* Main.storyboard */,
+				8094B6101E2E985A00ABC0FE /* ShowDairyViewController.swift */,
+				8094B6121E2E987A00ABC0FE /* UserAccountViewController.swift */,
+				8094B6081E2E610C00ABC0FE /* PostData.swift */,
+				8094B60E1E2E6FFE00ABC0FE /* ProfileData.swift */,
+				8094B60A1E2E620C00ABC0FE /* PostTableViewCell.swift */,
+				8094B60B1E2E620C00ABC0FE /* PostTableViewCell.xib */,
 				8000A7981E2CCEA30000B340 /* PassWordEditViewController.swift */,
 				8000A79A1E2CCEB80000B340 /* UsernameEditViewController.swift */,
 				8000A79C1E2CCED30000B340 /* ProfileEditViewController.swift */,
@@ -258,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80205DE91E265A16004AE317 /* LaunchScreen.storyboard in Resources */,
+				8094B60D1E2E620C00ABC0FE /* PostTableViewCell.xib in Resources */,
 				80205DF71E267554004AE317 /* GoogleService-Info.plist in Resources */,
 				80205DE61E265A16004AE317 /* Assets.xcassets in Resources */,
 				80205DE41E265A16004AE317 /* Main.storyboard in Resources */,
@@ -333,13 +352,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				80205DF51E266A98004AE317 /* CreateAccountViewController.swift in Sources */,
+				8094B6091E2E610C00ABC0FE /* PostData.swift in Sources */,
+				8094B60C1E2E620C00ABC0FE /* PostTableViewCell.swift in Sources */,
 				80205DE11E265A16004AE317 /* WriteDiaryViewController.swift in Sources */,
 				80205DDD1E265A16004AE317 /* AppDelegate.swift in Sources */,
+				8094B6131E2E987A00ABC0FE /* UserAccountViewController.swift in Sources */,
 				80205DDF1E265A16004AE317 /* DiaryViewController.swift in Sources */,
 				80205DF31E266A7B004AE317 /* LoginViewController.swift in Sources */,
 				80205DF11E265ACE004AE317 /* SettingViewController.swift in Sources */,
 				8000A79D1E2CCED30000B340 /* ProfileEditViewController.swift in Sources */,
+				8094B60F1E2E6FFE00ABC0FE /* ProfileData.swift in Sources */,
 				8000A7991E2CCEA30000B340 /* PassWordEditViewController.swift in Sources */,
+				8094B6111E2E985A00ABC0FE /* ShowDairyViewController.swift in Sources */,
 				8000A79B1E2CCEB80000B340 /* UsernameEditViewController.swift in Sources */,
 				8000A7971E2CCE3A0000B340 /* MailAddressEditViewController.swift in Sources */,
 				8094B6071E2DE0C900ABC0FE /* Const.swift in Sources */,

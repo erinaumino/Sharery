@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AdobeUXImageEditorViewControllerDelegate {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var diaryTextview: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func camera(_ sender: Any) {
         // アラートを作成
@@ -81,6 +84,8 @@ class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate
         //let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
         //postViewController.image = image
         //present(postViewController, animated: true, completion: nil)
+        // 受け取った画像をImageViewに設定する
+        imageView.image = image
     }
     
     // AdobeImageEditorで加工をキャンセルしたときに呼ばれる

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import SVProgressHUD
 
 class MailAddressEditViewController: UIViewController {
     @IBOutlet weak var mailaddressTextField: UITextField!
@@ -14,6 +17,43 @@ class MailAddressEditViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func editButton(_ sender: Any) {
+        if let newmailAddress = newmailaddressTextField.text, let passWord = passwordTextField.text, let mailAddress = mailaddressTextField.text{
+            
+            // 表示名が入力されていない時はHUDを出して何もしない
+            if newmailAddress.characters.isEmpty || passWord.characters.isEmpty || mailAddress.characters.isEmpty {
+                SVProgressHUD.showError(withStatus: "何かが空文字です")
+                return
+            }
+            
+            // 表示名を設定する
+            //let user = FIRAuth.auth()?.currentUser
+            
+            FIRAuth.auth()?.signIn(withEmail: mailAddress, password: passWord) { user, error in
+                if let error = error {
+                    print("DEBUG_PRINT: " + error.localizedDescription)
+                    SVProgressHUD.showError(withStatus: "サインインに失敗しました。")
+                    return
+                } else {
+                    print("DEBUG_PRINT: ログインに成功しました。")
+                    user?.updateEmail(newmailAddress) { error in
+                        if let error = error {
+                            print("DEBUG_PRINT: " + error.localizedDescription)
+                        } else {
+                            print("DEBUG_PRINT: [displayName = \(user?.email)]の設定に成功しました。")
+                            
+                            // HUDで完了を知らせる
+                            SVProgressHUD.showSuccess(withStatus: "メールアドレスを変更しました")
+                            
+                            let storyboard: UIStoryboard = self.storyboard!
+                            let nextView = storyboard.instantiateViewController(withIdentifier: "Setting") as! SettingViewController
+                            self.present(nextView, animated: true, completion: nil)
+                        }
+                    }
+                }
+            }
+        }
+        // キーボードを閉じる
+        self.view.endEditing(true)
     }
     
     override func viewDidLoad() {

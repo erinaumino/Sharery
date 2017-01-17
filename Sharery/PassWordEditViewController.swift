@@ -9,8 +9,6 @@
 import UIKit
 
 class PassWordEditViewController: UIViewController {
-    @IBOutlet weak var mailaddressTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var newpasswordTextField: UITextField!
     
     @IBAction func editButton(_ sender: Any) {

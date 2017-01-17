@@ -19,15 +19,13 @@ class MailAddressEditViewController: UIViewController {
     @IBAction func editButton(_ sender: Any) {
         if let newmailAddress = newmailaddressTextField.text, let passWord = passwordTextField.text, let mailAddress = mailaddressTextField.text{
             
-            // 表示名が入力されていない時はHUDを出して何もしない
+            // 入力されていない項目がある場合はHUDを出して何もしない
             if newmailAddress.characters.isEmpty || passWord.characters.isEmpty || mailAddress.characters.isEmpty {
                 SVProgressHUD.showError(withStatus: "何かが空文字です")
                 return
             }
             
-            // 表示名を設定する
-            //let user = FIRAuth.auth()?.currentUser
-            
+            // 認証してメールアドレスを変更する
             FIRAuth.auth()?.signIn(withEmail: mailAddress, password: passWord) { user, error in
                 if let error = error {
                     print("DEBUG_PRINT: " + error.localizedDescription)
@@ -39,7 +37,7 @@ class MailAddressEditViewController: UIViewController {
                         if let error = error {
                             print("DEBUG_PRINT: " + error.localizedDescription)
                         } else {
-                            print("DEBUG_PRINT: [displayName = \(user?.email)]の設定に成功しました。")
+                            print("DEBUG_PRINT: [email = \(user?.email)]の設定に成功しました。")
                             
                             // HUDで完了を知らせる
                             SVProgressHUD.showSuccess(withStatus: "メールアドレスを変更しました")

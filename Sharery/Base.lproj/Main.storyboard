@@ -701,7 +701,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="新パスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K0i-TE-vdZ">
                                 <rect key="frame" x="38" y="214" width="300" height="40"/>
@@ -711,7 +711,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvo-bp-Dwp">
                                 <rect key="frame" x="38" y="284" width="300" height="40"/>
@@ -721,7 +721,7 @@
                                 </constraints>
                                 <state key="normal" title="変更" backgroundImage="button"/>
                                 <connections>
-                                    <action selector="editButton:" destination="iYM-gH-2Gl" eventType="touchUpInside" id="5Y5-fn-YW8"/>
+                                    <action selector="editButton:" destination="iYM-gH-2Gl" eventType="touchUpInside" id="ozk-bz-p17"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -741,9 +741,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mailaddressTextField" destination="itQ-q0-7ZL" id="tKW-rC-VdN"/>
-                        <outlet property="newpasswordTextField" destination="K0i-TE-vdZ" id="f5s-lM-DHU"/>
-                        <outlet property="passwordTextField" destination="PGA-AZ-ean" id="nAt-MB-WQb"/>
+                        <outlet property="mailaddressTextField" destination="itQ-q0-7ZL" id="bPP-vC-rjF"/>
+                        <outlet property="newpasswordTextField" destination="K0i-TE-vdZ" id="PbD-Hx-WnZ"/>
+                        <outlet property="passwordTextField" destination="PGA-AZ-ean" id="xR0-qe-e2O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y01-a1-Jmx" userLabel="First Responder" sceneMemberID="firstResponder"/>

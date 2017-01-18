@@ -17,18 +17,19 @@ class ProfileEditViewController: UIViewController {
     @IBOutlet weak var profileTextView: UITextView!
     
     //var postArray: [PostData] = []
-    var post:PostData? = nil
+    var post:ProfileData? = nil
 
 
     @IBAction func editButton(_ sender: Any) {
         if let uid = FIRAuth.auth()?.currentUser?.uid {
             //post.comment.append(uid)
+            let userid = FIRAuth.auth()?.currentUser?.uid
             
             // 増えたcommentとuserをFirebaseに保存する
             let postRef = FIRDatabase.database().reference().child(Const.PostPath)//.child(post!.id!)
             //let profile_value = (post?.profile!)! + profileTextView.text!
             //let profile = ["caption": profile_value]; postRef.updateChildValues(profile)
-            let postData = ["profile": profileTextView.text!]
+            let postData = ["userid": userid!,"profile": profileTextView.text!]
             //postRef.updateChildValues(profile)
             postRef.childByAutoId().setValue(postData)
             
@@ -41,9 +42,9 @@ class ProfileEditViewController: UIViewController {
         //let postData = ["profile": profileTextView.text!]
         //postRef.childByAutoId().setValue(postData)
 
-        
         // HUDで完了を知らせる
         SVProgressHUD.showSuccess(withStatus: "プロフィールを変更しました")
+
         
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "Setting") as! SettingViewController
@@ -54,11 +55,13 @@ class ProfileEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // プロフィールを取得してTextFieldに設定する
-        //let user = FIRAuth.auth()?.currentUser
-        //if let user = user {
-            //profileTextView.text = postArray.profile
-        //}
+        //プロフィールを取得してTextFieldに設定する
+        let user = FIRAuth.auth()?.currentUser
+        if let user = user {
+            if ((post?.userid = user.uid) != nil){
+            profileTextView.text = post?.profile
+            }
+        }
 
     }
 

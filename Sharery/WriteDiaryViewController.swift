@@ -23,12 +23,14 @@ class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate
         let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
         
         // postDataに必要な情報を取得しておく
-        let time = NSDate.timeIntervalSinceReferenceDate
+        let time = datepicker.date
+
+        //let time = NSDate.timeIntervalSinceReferenceDate
         let name = FIRAuth.auth()?.currentUser?.displayName
         
         // 辞書を作成してFirebaseに保存する
         let postRef = FIRDatabase.database().reference().child(Const.PostPath)
-        let postData = ["title": titleTextField.text!, "diary": diaryTextview.text!, "image": imageString, "time": String(time), "name": name!]
+        let postData = ["title": titleTextField.text!, "diary": diaryTextview.text!, "image": imageString, "time": String(describing: time), "name": name!] as [String : Any]
         postRef.childByAutoId().setValue(postData)
         
         // HUDで投稿完了を表示する

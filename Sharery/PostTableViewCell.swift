@@ -33,9 +33,28 @@ class PostTableViewCell: UITableViewCell {
         self.titleLabel.text = postData.title
         self.diaryLabel.text = postData.diary
         
+        guard let date = postData.date else { return }
+        
         let formatter = DateFormatter()
-        formatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale!
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        formatter.dateFormat = "dd"
+        let day = formatter.string(from: date)
+        self.dateLabel.text = day
+        formatter.dateFormat = "HH:mm"
+        let time = formatter.string(from: date)
+        self.timeLabel.text = time
+        
+        formatter.dateFormat = "yyyy"
+        let year = formatter.string(from: date)
+        formatter.dateFormat = "MM"
+        let months = formatter.string(from: date)
+        
+        let month: Array  = [nil, "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        self.dayLabel.text = year + "." + month[Int(months)!]!
+        
+        formatter.dateFormat = "E"
+        let days = formatter.string(from: date)
+        self.daysLabel.text = days
+
         
         //let dateString:String = formatter.string(from: postData.date! as Date)
         //self.dateLabel.text = dateString

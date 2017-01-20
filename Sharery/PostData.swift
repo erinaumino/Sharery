@@ -17,7 +17,8 @@ class PostData: NSObject {
     var name: String?
     var title: String?
     var diary: String?
-    //var date: NSDate?
+    var time: String?
+    var date: Date?
     
     init(snapshot: FIRDataSnapshot, myId: String) {
         self.id = snapshot.key
@@ -33,8 +34,15 @@ class PostData: NSObject {
         
         self.diary = valueDictionary["diary"] as? String
         
-        //let date = valueDictionary["time"] as? String
+        self.time = valueDictionary["time"] as? String
         //self.date = NSDate(timeIntervalSinceReferenceDate: TimeInterval(time!)!)
+        
+        if let time = self.time {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+            self.date = formatter.date(from: time) // Returns "Jul 27, 2015, 12:29 PM" PST
+        }
+
         
     }
 }

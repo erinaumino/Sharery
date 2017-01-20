@@ -42,6 +42,17 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kbp-Fo-Kr6">
                                 <rect key="frame" x="0.0" y="112" width="375" height="506"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="default" indentationWidth="10" id="FIN-Dg-1EX" customClass="PostTableViewCell" customModule="Sharery" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FIN-Dg-1EX" id="GAu-z7-qpw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -858,7 +869,7 @@
             </objects>
             <point key="canvasLocation" x="1380" y="1842.7286356821592"/>
         </scene>
-        <!--Second-->
+        <!--Write Diary View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController storyboardIdentifier="Writediary" id="8rJ-Kc-sve" customClass="WriteDiaryViewController" customModule="Sharery" customModuleProvider="target" sceneMemberID="viewController">
@@ -870,29 +881,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j92-sy-fRS">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="SJs-SB-9SI"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.45882352939999999" green="0.80392156859999997" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem title="Title" id="hp5-A5-YZV">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="Zck-Hn-e89">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="camera:" destination="8rJ-Kc-sve" id="z9o-XQ-gse"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="mZq-pm-K0g">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="editButton:" destination="8rJ-Kc-sve" id="xh8-IV-SzE"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトル" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a0D-ks-I3i">
                                 <rect key="frame" x="0.0" y="89" width="375" height="40"/>
                                 <constraints>
@@ -928,22 +916,32 @@
                             <constraint firstItem="d7e-p8-Dpn" firstAttribute="top" secondItem="a0D-ks-I3i" secondAttribute="bottom" constant="25" id="8AN-Oc-vDf"/>
                             <constraint firstItem="XFE-0N-lWd" firstAttribute="top" secondItem="d7e-p8-Dpn" secondAttribute="bottom" constant="8" id="8DH-9p-nsc"/>
                             <constraint firstItem="XFE-0N-lWd" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="C3z-QE-O1o"/>
+                            <constraint firstItem="a0D-ks-I3i" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="25" id="IIv-5a-JSH"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="bdw-ZD-Ueo" secondAttribute="bottom" id="J9v-2Q-bpP"/>
-                            <constraint firstAttribute="trailing" secondItem="j92-sy-fRS" secondAttribute="trailing" id="JPJ-GU-VWU"/>
-                            <constraint firstItem="j92-sy-fRS" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="LjA-ff-vc8"/>
                             <constraint firstItem="bdw-ZD-Ueo" firstAttribute="top" secondItem="XFE-0N-lWd" secondAttribute="bottom" constant="8" id="VX7-Ze-V5O"/>
                             <constraint firstItem="bdw-ZD-Ueo" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="W0H-zA-MnM"/>
                             <constraint firstItem="a0D-ks-I3i" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="Wkt-hi-SYc"/>
                             <constraint firstAttribute="trailing" secondItem="bdw-ZD-Ueo" secondAttribute="trailing" id="WyM-WM-KJS"/>
                             <constraint firstItem="d7e-p8-Dpn" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="XfU-eC-Dfw"/>
                             <constraint firstAttribute="trailing" secondItem="a0D-ks-I3i" secondAttribute="trailing" id="dYa-mb-hca"/>
-                            <constraint firstItem="a0D-ks-I3i" firstAttribute="top" secondItem="j92-sy-fRS" secondAttribute="bottom" constant="25" id="ece-Ui-rbg"/>
-                            <constraint firstItem="XFE-0N-lWd" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="gUv-6w-E88"/>
-                            <constraint firstItem="j92-sy-fRS" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="mxm-Ar-eXC"/>
+                            <constraint firstItem="d7e-p8-Dpn" firstAttribute="top" secondItem="a0D-ks-I3i" secondAttribute="bottom" constant="25" id="f3E-q1-tNv"/>
                             <constraint firstAttribute="trailing" secondItem="d7e-p8-Dpn" secondAttribute="trailing" id="vQg-j4-kaU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="pen" selectedImage="pen_edit" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" id="Wkt-mu-acG">
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="Zck-Hn-e89">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="camera:" destination="8rJ-Kc-sve" id="z9o-XQ-gse"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="mZq-pm-K0g">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="editButton:" destination="8rJ-Kc-sve" id="xh8-IV-SzE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="datepicker" destination="bdw-ZD-Ueo" id="y78-z1-d11"/>
                         <outlet property="diaryTextview" destination="d7e-p8-Dpn" id="pmc-ac-Plt"/>
@@ -953,7 +951,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="350.37481259370315"/>
+            <point key="canvasLocation" x="1919.2" y="350.37481259370315"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -970,7 +968,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Xn2-M1-W8t" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="ndj-5x-bFA" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="ezD-yz-t5i" kind="relationship" relationship="viewControllers" id="MhO-a6-oqg"/>
                     </connections>
                 </tabBarController>
@@ -1017,6 +1015,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ff2-eY-atR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+        </scene>
+        <!--Second-->
+        <scene sceneID="Rkf-RW-PXA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ndj-5x-bFA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Second" image="pen" selectedImage="pen_edit" id="cPa-gy-q4n"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ajc-Id-U4w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.45882352939999999" green="0.80392156859999997" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="cv9-JT-A0N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1H1-wZ-AVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="350.37481259370315"/>
         </scene>
     </scenes>
     <resources>

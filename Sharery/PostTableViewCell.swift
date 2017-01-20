@@ -30,6 +30,7 @@ class PostTableViewCell: UITableViewCell {
     func setPostData(postData: PostData) {
         //self.postImageView.image = postData.image
         
+        
         self.titleLabel.text = postData.title
         self.diaryLabel.text = postData.diary
         

@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import SVProgressHUD
+import CoreBluetooth
 
 class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var tableView: UITableView!

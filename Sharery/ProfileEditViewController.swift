@@ -11,78 +11,131 @@ import Firebase
 import FirebaseAuth
 import SVProgressHUD
 
-class ProfileEditViewController: UIViewController {
+class ProfileEditViewController: UIViewController, UITextViewDelegate {
+    let ref = FIRDatabase.database().reference() //Firebaseのルートを宣言しておく
 
     @IBOutlet weak var profileLabel: UILabel!
     @IBOutlet weak var profileTextView: UITextView!
     
-    //var postArray: [PostData] = []
-    var post:ProfileData? = nil
+    var post: [ProfileData] = []
+    //var post:ProfileData? = nil
+    
+    var contentArray: [FIRDataSnapshot] = [] //Fetchしたデータを入れておく配列、この配列をTableViewで表示
 
 
     @IBAction func editButton(_ sender: Any) {
-        if let uid = FIRAuth.auth()?.currentUser?.uid {
-            //post.comment.append(uid)
-            let userid = FIRAuth.auth()?.currentUser?.uid
-            
-            // 増えたcommentとuserをFirebaseに保存する
-            let postRef = FIRDatabase.database().reference().child(Const.PostPath)//.child(post!.id!)
-            //let profile_value = (post?.profile!)! + profileTextView.text!
-            //let profile = ["caption": profile_value]; postRef.updateChildValues(profile)
-            let postData = ["userid": userid!,"profile": profileTextView.text!]
-            //postRef.updateChildValues(profile)
-            postRef.childByAutoId().setValue(postData)
-            
-            
-        }
-
+        //投稿のためのメソッド
+        create()
         
-        // 辞書を作成してFirebaseに保存する
-        //let postRef = FIRDatabase.database().reference().child(Const.PostPath)
-        //let postData = ["profile": profileTextView.text!]
-        //postRef.childByAutoId().setValue(postData)
-
         // HUDで完了を知らせる
         SVProgressHUD.showSuccess(withStatus: "プロフィールを変更しました")
-
+        
         
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "Setting") as! SettingViewController
         self.present(nextView, animated: true, completion: nil)
-        
+
+        }
+    
+       /*
+    //Returnキーを押すと、キーボードを隠す
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
+
+ 
+     
+    }
+ */
+    
+    //データの送信のメソッド
+    func create() {
+        //textFieldになにも書かれてない場合は、その後の処理をしない
+        guard let text = profileTextView.text else { return }
+        
+        //ロートからログインしているユーザーのIDをchildにしてデータを作成
+        //childByAutoId()でユーザーIDの下に、IDを自動生成してその中にデータを入れる
+        //setValueでデータを送信する。第一引数に送信したいデータを辞書型で入れる
+        //今回は記入内容と一緒にユーザーIDと時間を入れる
+        //FIRServerValue.timestamp()で現在時間を取る
+        self.ref.child((FIRAuth.auth()?.currentUser?.uid)!).childByAutoId().setValue(["user": (FIRAuth.auth()?.currentUser?.uid)!,"profile": text])
+    }
+    
+    func read()  {
+        //FIRDataEventTypeを.Valueにすることにより、なにかしらの変化があった時に、実行
+        //今回は、childでユーザーIDを指定することで、ユーザーが投稿したデータの一つ上のchildまで指定することになる
+        ref.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.value, with: {(snapShots) in
+            if snapShots.children.allObjects is [FIRDataSnapshot] {
+                print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
+                
+                print("snapShot...\(snapShots)") //読み込んだデータをプリント
+                
+                //self.snap = snapShots
+                
+            }
+            //self.reload(snap: self.snap)
+        })
+    }
+    
+    //読み込んだデータは最初すべてのデータが一つにまとまっているので、それらを分割して、配列に入れる
+    func reload(snap: FIRDataSnapshot) {
+        if snap.exists() {
+            print(snap)
+            //FIRDataSnapshotが存在するか確認
+            contentArray.removeAll()
+            //1つになっているFIRDataSnapshotを分割し、配列に入れる
+            for item in snap.children {
+                contentArray.append(item as! FIRDataSnapshot)
+            }
+            // ローカルのデータベースを更新
+            ref.child((FIRAuth.auth()?.currentUser?.uid)!).keepSynced(true)
+            //テーブルビューをリロード
+            //profileTextView.reloadData()
+        }
+    }
+    
+    //返すセルを決める
+    func textViewDidChange(_ textView: UITextView, textviewForRowAt indexPath: IndexPath) {
+        //let cell = table.dequeueReusableCell(withIdentifier: "ListCell") as! ListTableViewCell
+
+    //func textView(_ textView: UITextView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //xibとカスタムクラスで作成したCellのインスタンスを作成
+        //let cell = table.dequeueReusableCell(withIdentifier: "ListCell") as! ListTableViewCell
+        
+        //配列の該当のデータをitemという定数に代入
+        let item = contentArray[indexPath.row]
+        //itemの中身を辞書型に変換
+        let content = item.value as! Dictionary<String, AnyObject>
+        //contentという添字で保存していた投稿内容を表示
+        profileTextView.text = String(describing: content["profile"]!)
+    
+        //return cell
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //プロフィールを取得してTextFieldに設定する
-        let user = FIRAuth.auth()?.currentUser
-        if let user = user {
-            if ((post?.userid = user.uid) != nil){
-            profileTextView.text = post?.profile
-            }
-        }
-
+        //データを読み込むためのメソッド
+        self.read()
+        
+        profileTextView.delegate = self //デリゲートをセット
+        //profileTextView.detaSource = self
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    //func setProfileData(profileData: ProfileData) {
-        //self.profileTextView.text = profileData.profile
-    //}
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        //画面が消えたときに、Firebaseのデータ読み取りのObserverを削除しておく
+        ref.removeAllObservers()
     }
-    */
 
 }

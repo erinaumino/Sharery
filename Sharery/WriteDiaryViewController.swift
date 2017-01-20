@@ -45,8 +45,8 @@ class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate
     @IBAction func camera(_ sender: Any) {
         // アラートを作成
         let alert = UIAlertController(
-            title: "",
-            message: "",
+            title: "写真を選択",
+            message: "ライブラリまたは写真を撮るから選択",
             preferredStyle: .actionSheet)
         
         // アラートにボタンをつける

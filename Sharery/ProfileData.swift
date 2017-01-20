@@ -15,18 +15,19 @@ class ProfileData: NSObject {
     var userid: String?
     var image: UIImage?
     var imageString: String?
-
     var profile: String?
 
     
     init(snapshot: FIRDataSnapshot, myId: String) {
         self.id = snapshot.key
         
-        if let user = FIRAuth.auth()?.currentUser{
-            self.userid = user.uid
-        }
+        //if let user = FIRAuth.auth()?.currentUser{
+            //self.userid = user.uid
+        //}
         
         let valueDictionary = snapshot.value as! [String: AnyObject]
+        
+        self.userid = valueDictionary["userid"] as? String
         
         imageString = valueDictionary["image"] as? String
         image = UIImage(data: NSData(base64Encoded: imageString!, options: .ignoreUnknownCharacters)! as Data)

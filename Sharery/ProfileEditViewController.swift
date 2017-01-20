@@ -19,7 +19,7 @@ class ProfileEditViewController: UIViewController, UITextViewDelegate {
     
     var post: [ProfileData] = []
     //var post:ProfileData? = nil
-    
+    var snap: FIRDataSnapshot!
     var contentArray: [FIRDataSnapshot] = [] //Fetchしたデータを入れておく配列、この配列をTableViewで表示
 
 
@@ -71,10 +71,10 @@ class ProfileEditViewController: UIViewController, UITextViewDelegate {
                 
                 print("snapShot...\(snapShots)") //読み込んだデータをプリント
                 
-                //self.snap = snapShots
+                self.snap = snapShots
                 
             }
-            //self.reload(snap: self.snap)
+            self.reload(snap: self.snap)
         })
     }
     
@@ -91,28 +91,10 @@ class ProfileEditViewController: UIViewController, UITextViewDelegate {
             // ローカルのデータベースを更新
             ref.child((FIRAuth.auth()?.currentUser?.uid)!).keepSynced(true)
             //テーブルビューをリロード
-            //profileTextView.reloadData()
+            let item = contentArray[contentArray.count - 1].value as! Dictionary<String, AnyObject>
+            profileTextView.text = item["profile"] as! String!
         }
     }
-    
-    //返すセルを決める
-    func textViewDidChange(_ textView: UITextView, textviewForRowAt indexPath: IndexPath) {
-        //let cell = table.dequeueReusableCell(withIdentifier: "ListCell") as! ListTableViewCell
-
-    //func textView(_ textView: UITextView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //xibとカスタムクラスで作成したCellのインスタンスを作成
-        //let cell = table.dequeueReusableCell(withIdentifier: "ListCell") as! ListTableViewCell
-        
-        //配列の該当のデータをitemという定数に代入
-        let item = contentArray[indexPath.row]
-        //itemの中身を辞書型に変換
-        let content = item.value as! Dictionary<String, AnyObject>
-        //contentという添字で保存していた投稿内容を表示
-        profileTextView.text = String(describing: content["profile"]!)
-    
-        //return cell
-    }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()

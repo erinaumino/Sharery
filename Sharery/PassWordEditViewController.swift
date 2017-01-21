@@ -44,7 +44,8 @@ class PassWordEditViewController: UIViewController {
                             
                             let storyboard: UIStoryboard = self.storyboard!
                             let nextView = storyboard.instantiateViewController(withIdentifier: "Setting") as! SettingViewController
-                            self.present(nextView, animated: true, completion: nil)
+                            self.navigationController?.popViewController(animated: true)
+//                            self.present(nextView, animated: true, completion: nil)
                         }
                     }
                 }

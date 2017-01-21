@@ -41,6 +41,7 @@ class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "Diary") as! DiaryViewController
         self.present(nextView, animated: true, completion: nil)
+        //self.navigationController?.popViewController(animated: true)
 
     }
     

@@ -37,7 +37,7 @@ class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.dataSource = self
         
         // テーブルセルのタップを無効にする
-        //tableView.allowsSelection = false
+        tableView.allowsSelection = false
         
         let nib = UINib(nibName: "PostTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")

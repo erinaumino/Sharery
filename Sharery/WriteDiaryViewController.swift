@@ -20,7 +20,6 @@ class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate
     
     var imageData = ""
     var imageString = ""
-    //var post:PostData? = nil
     
     @IBAction func editButton(_ sender: Any) {
         // ImageViewから画像を取得する

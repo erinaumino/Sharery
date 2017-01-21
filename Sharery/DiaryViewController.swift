@@ -15,7 +15,7 @@ import CoreBluetooth
 class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var tableView: UITableView!
     
-    //var postData: [PostData] = []
+    var postData: [PostData] = []
     
     var postArray: [PostData] = []
     // FIRDatabaseのobserveEventの登録状態を表す
@@ -157,26 +157,17 @@ class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // セルをタップされたら何もせずに選択状態を解除する
-        //tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+
         
-//        let storyboard: UIStoryboard = self.storyboard!
-//        let nextView = storyboard.instantiateViewController(withIdentifier: "Write") as! WriteDiaryViewController
-//        self.navigationController?.popViewController(animated: true)
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath.row]
         
-        self.tabBarController?.selectedIndex = 1
+        let nextViewController: DiaryEditViewController = self.storyboard?.instantiateViewController(withIdentifier: "DiaryEdit") as! DiaryEditViewController
+        nextViewController.post =  postData
+        self.navigationController?.pushViewController(nextViewController, animated: true)
         
-//        // セルを取得してデータを設定する
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath) as! PostTableViewCell
-//        cell.setPostData(postData: postArray[indexPath.row])
-//        
-//        // 配列からタップされたインデックスのデータを取り出す
-//        let postData = postArray[indexPath.row]
-//
-//        
-//        let storyboard: UIStoryboard = self.storyboard!
-//        let nextView = storyboard.instantiateViewController(withIdentifier: "Write") as! WriteDiaryViewController
-//        nextView.post =  postData
+        self.tableView.reloadData()
+
 
 
     }

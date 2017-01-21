@@ -69,11 +69,12 @@
                     <navigationItem key="navigationItem" id="10i-g8-34K"/>
                     <connections>
                         <outlet property="tableView" destination="kbp-Fo-Kr6" id="o5m-k9-ojZ"/>
+                        <segue destination="Yt8-RA-Yr3" kind="show" id="gHq-xS-euq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688.8" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="1793" y="-278"/>
         </scene>
         <!--Show Dairy View Controller-->
         <scene sceneID="YaX-Rb-hb2">
@@ -984,7 +985,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ezD-yz-t5i" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" image="set" selectedImage="set_edit_1" id="4KF-az-ofd"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MPp-Lz-Hea">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MPp-Lz-Hea">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.45882352939999999" green="0.80392156859999997" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -1004,7 +1005,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xn2-M1-W8t" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="First" image="book" selectedImage="book_edit" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2ce-dB-y9M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2ce-dB-y9M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.45882352939999999" green="0.80392156859999997" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -1016,7 +1017,88 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ff2-eY-atR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="750" y="-278"/>
+        </scene>
+        <!--Diary Edit View Controller-->
+        <scene sceneID="mbO-m4-R5A">
+            <objects>
+                <viewController storyboardIdentifier="DiaryEdit" id="Yt8-RA-Yr3" customClass="DiaryEditViewController" customModule="Sharery" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q91-cX-FCf"/>
+                        <viewControllerLayoutGuide type="bottom" id="UgX-Uz-H4b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eoD-Ua-XQS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトル" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f2g-2R-CiY">
+                                <rect key="frame" x="0.0" y="89" width="375" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="2d5-y2-j5d"/>
+                                    <constraint firstAttribute="height" constant="40" id="BXv-Hb-WD7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zyx-7A-3dq">
+                                <rect key="frame" x="0.0" y="154" width="375" height="194"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="194" id="ewz-XQ-Oue"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8ha-sd-dXd">
+                                <rect key="frame" x="16" y="356" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="8bT-4d-ymQ"/>
+                                    <constraint firstAttribute="width" constant="38" id="9fo-6q-9WK"/>
+                                    <constraint firstAttribute="width" secondItem="8ha-sd-dXd" secondAttribute="height" multiplier="1:1" id="C4h-PJ-dcf"/>
+                                </constraints>
+                            </imageView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1k1-Tj-yM6">
+                                <rect key="frame" x="0.0" y="402" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="506244941.544384">
+                                    <!--2017-01-16 07:35:41 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qph-Zr-e1b">
+                                <rect key="frame" x="318" y="25" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="f2g-2R-CiY" firstAttribute="leading" secondItem="eoD-Ua-XQS" secondAttribute="leading" id="0Hx-Cw-AlQ"/>
+                            <constraint firstItem="zyx-7A-3dq" firstAttribute="top" secondItem="f2g-2R-CiY" secondAttribute="bottom" constant="25" id="6FK-Uh-PRc"/>
+                            <constraint firstItem="f2g-2R-CiY" firstAttribute="top" secondItem="q91-cX-FCf" secondAttribute="bottom" constant="25" id="7Yy-55-fKs"/>
+                            <constraint firstItem="zyx-7A-3dq" firstAttribute="top" secondItem="f2g-2R-CiY" secondAttribute="bottom" constant="25" id="HbQ-aE-PMz"/>
+                            <constraint firstItem="zyx-7A-3dq" firstAttribute="trailing" secondItem="1k1-Tj-yM6" secondAttribute="trailing" id="Sqn-0N-24c"/>
+                            <constraint firstItem="zyx-7A-3dq" firstAttribute="leading" secondItem="f2g-2R-CiY" secondAttribute="leading" id="ZnS-vy-fRC"/>
+                            <constraint firstItem="1k1-Tj-yM6" firstAttribute="top" secondItem="8ha-sd-dXd" secondAttribute="bottom" constant="8" id="aV2-GM-OAN"/>
+                            <constraint firstAttribute="trailing" secondItem="f2g-2R-CiY" secondAttribute="trailing" id="ddX-kL-VtT"/>
+                            <constraint firstItem="zyx-7A-3dq" firstAttribute="leading" secondItem="1k1-Tj-yM6" secondAttribute="leading" id="hpt-h5-m7b"/>
+                            <constraint firstItem="8ha-sd-dXd" firstAttribute="top" secondItem="zyx-7A-3dq" secondAttribute="bottom" constant="8" id="jYj-Ys-nND"/>
+                            <constraint firstItem="zyx-7A-3dq" firstAttribute="trailing" secondItem="f2g-2R-CiY" secondAttribute="trailing" id="kYl-qD-HXX"/>
+                            <constraint firstItem="8ha-sd-dXd" firstAttribute="width" secondItem="8ha-sd-dXd" secondAttribute="height" multiplier="1:1" id="oAq-el-InI"/>
+                            <constraint firstItem="8ha-sd-dXd" firstAttribute="leading" secondItem="eoD-Ua-XQS" secondAttribute="leadingMargin" id="uzd-Vq-7ee"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="DiaryTextView" destination="zyx-7A-3dq" id="yiR-bP-oqZ"/>
+                        <outlet property="datePicker" destination="1k1-Tj-yM6" id="Pwx-fR-TRK"/>
+                        <outlet property="photoImageView" destination="8ha-sd-dXd" id="YlW-9l-WX0"/>
+                        <outlet property="titleTextField" destination="f2g-2R-CiY" id="1F0-Cj-E2V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tWl-H2-TQC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1178" y="-1061"/>
         </scene>
         <!--Second-->
         <scene sceneID="Rkf-RW-PXA">
@@ -1024,7 +1106,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ndj-5x-bFA" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Second" image="pen" selectedImage="pen_edit" id="cPa-gy-q4n"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ajc-Id-U4w">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ajc-Id-U4w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.45882352939999999" green="0.80392156859999997" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>

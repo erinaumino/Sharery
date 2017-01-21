@@ -43,8 +43,8 @@
 		8094B60C1E2E620C00ABC0FE /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8094B60A1E2E620C00ABC0FE /* PostTableViewCell.swift */; };
 		8094B60D1E2E620C00ABC0FE /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8094B60B1E2E620C00ABC0FE /* PostTableViewCell.xib */; };
 		8094B60F1E2E6FFE00ABC0FE /* ProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8094B60E1E2E6FFE00ABC0FE /* ProfileData.swift */; };
-		8094B6111E2E985A00ABC0FE /* ShowDairyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8094B6101E2E985A00ABC0FE /* ShowDairyViewController.swift */; };
 		8094B6131E2E987A00ABC0FE /* UserAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8094B6121E2E987A00ABC0FE /* UserAccountViewController.swift */; };
+		80DB0A781E338133004D1649 /* DiaryEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DB0A771E338133004D1649 /* DiaryEditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -101,8 +101,8 @@
 		8094B60A1E2E620C00ABC0FE /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		8094B60B1E2E620C00ABC0FE /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		8094B60E1E2E6FFE00ABC0FE /* ProfileData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileData.swift; sourceTree = "<group>"; };
-		8094B6101E2E985A00ABC0FE /* ShowDairyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDairyViewController.swift; sourceTree = "<group>"; };
 		8094B6121E2E987A00ABC0FE /* UserAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewController.swift; sourceTree = "<group>"; };
+		80DB0A771E338133004D1649 /* DiaryEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryEditViewController.swift; sourceTree = "<group>"; };
 		90C58E7DC861D53208AA475E /* Pods-Sharery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sharery/Pods-Sharery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,7 +188,7 @@
 				80205DE01E265A16004AE317 /* WriteDiaryViewController.swift */,
 				8094B6061E2DE0C900ABC0FE /* Const.swift */,
 				80205DE21E265A16004AE317 /* Main.storyboard */,
-				8094B6101E2E985A00ABC0FE /* ShowDairyViewController.swift */,
+				80DB0A771E338133004D1649 /* DiaryEditViewController.swift */,
 				8094B6121E2E987A00ABC0FE /* UserAccountViewController.swift */,
 				8094B6081E2E610C00ABC0FE /* PostData.swift */,
 				8094B60E1E2E6FFE00ABC0FE /* ProfileData.swift */,
@@ -357,13 +357,13 @@
 				80205DE11E265A16004AE317 /* WriteDiaryViewController.swift in Sources */,
 				80205DDD1E265A16004AE317 /* AppDelegate.swift in Sources */,
 				8094B6131E2E987A00ABC0FE /* UserAccountViewController.swift in Sources */,
+				80DB0A781E338133004D1649 /* DiaryEditViewController.swift in Sources */,
 				80205DDF1E265A16004AE317 /* DiaryViewController.swift in Sources */,
 				80205DF31E266A7B004AE317 /* LoginViewController.swift in Sources */,
 				80205DF11E265ACE004AE317 /* SettingViewController.swift in Sources */,
 				8000A79D1E2CCED30000B340 /* ProfileEditViewController.swift in Sources */,
 				8094B60F1E2E6FFE00ABC0FE /* ProfileData.swift in Sources */,
 				8000A7991E2CCEA30000B340 /* PassWordEditViewController.swift in Sources */,
-				8094B6111E2E985A00ABC0FE /* ShowDairyViewController.swift in Sources */,
 				8000A79B1E2CCEB80000B340 /* UsernameEditViewController.swift in Sources */,
 				8000A7971E2CCE3A0000B340 /* MailAddressEditViewController.swift in Sources */,
 				8094B6071E2DE0C900ABC0FE /* Const.swift in Sources */,

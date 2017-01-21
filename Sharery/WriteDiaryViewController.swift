@@ -1,3 +1,4 @@
+
 //
 //  SecondViewController.swift
 //  Sharery
@@ -35,13 +36,15 @@ class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate
         
         // HUDで投稿完了を表示する
         SVProgressHUD.showSuccess(withStatus: "投稿しました")
+
+        self.tabBarController?.selectedIndex = 0
         
-        // 全てのモーダルを閉じる
-        //UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
-        let storyboard: UIStoryboard = self.storyboard!
-        let nextView = storyboard.instantiateViewController(withIdentifier: "Diary") as! DiaryViewController
-        self.present(nextView, animated: true, completion: nil)
-        //self.navigationController?.popViewController(animated: true)
+        titleTextField.text = ""
+        diaryTextview.text = ""
+        imageView.image = nil
+        //datepicker
+
+
 
     }
     

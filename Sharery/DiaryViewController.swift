@@ -15,6 +15,8 @@ import CoreBluetooth
 class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var tableView: UITableView!
     
+    //var postData: [PostData] = []
+    
     var postArray: [PostData] = []
     // FIRDatabaseのobserveEventの登録状態を表す
     var observing = false
@@ -37,7 +39,7 @@ class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.dataSource = self
         
         // テーブルセルのタップを無効にする
-        tableView.allowsSelection = false
+        //tableView.allowsSelection = false
         
         let nib = UINib(nibName: "PostTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
@@ -156,7 +158,27 @@ class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // セルをタップされたら何もせずに選択状態を解除する
-        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        //tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        
+//        let storyboard: UIStoryboard = self.storyboard!
+//        let nextView = storyboard.instantiateViewController(withIdentifier: "Write") as! WriteDiaryViewController
+//        self.navigationController?.popViewController(animated: true)
+        
+        self.tabBarController?.selectedIndex = 1
+        
+//        // セルを取得してデータを設定する
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath) as! PostTableViewCell
+//        cell.setPostData(postData: postArray[indexPath.row])
+//        
+//        // 配列からタップされたインデックスのデータを取り出す
+//        let postData = postArray[indexPath.row]
+//
+//        
+//        let storyboard: UIStoryboard = self.storyboard!
+//        let nextView = storyboard.instantiateViewController(withIdentifier: "Write") as! WriteDiaryViewController
+//        nextView.post =  postData
+
+
     }
     
 

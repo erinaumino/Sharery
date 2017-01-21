@@ -901,6 +901,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XFE-0N-lWd">
                                 <rect key="frame" x="16" y="356" width="38" height="38"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="Fy5-2i-Yuf"/>
+                                    <constraint firstAttribute="height" constant="38" id="eLz-IV-Xur"/>
                                     <constraint firstAttribute="width" secondItem="XFE-0N-lWd" secondAttribute="height" multiplier="1:1" id="kVF-x8-M7K"/>
                                 </constraints>
                             </imageView>

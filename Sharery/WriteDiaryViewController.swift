@@ -18,8 +18,13 @@ class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var datepicker: UIDatePicker!
     
+    var imageData = ""
+    var imageString = ""
+    //var post:PostData? = nil
+    
     @IBAction func editButton(_ sender: Any) {
         // ImageViewから画像を取得する
+        //guard let image = UIImage else { return }
         let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
         let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
         
@@ -119,6 +124,10 @@ class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate
         //present(postViewController, animated: true, completion: nil)
         // 受け取った画像をImageViewに設定する
         imageView.image = image
+        
+//        imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
+//        imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
+
     }
     
     // AdobeImageEditorで加工をキャンセルしたときに呼ばれる
@@ -131,6 +140,10 @@ class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+//        titleTextField.text = post?.title
+//        diaryTextview.text = post?.diary
+        //imageView.image = post?.image
+        //datepicker
     }
 
     override func didReceiveMemoryWarning() {

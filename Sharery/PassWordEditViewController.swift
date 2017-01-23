@@ -42,10 +42,7 @@ class PassWordEditViewController: UIViewController {
                             // HUDで完了を知らせる
                             SVProgressHUD.showSuccess(withStatus: "パスワードを変更しました")
                             
-                            let storyboard: UIStoryboard = self.storyboard!
-                            let nextView = storyboard.instantiateViewController(withIdentifier: "Setting") as! SettingViewController
                             self.navigationController?.popViewController(animated: true)
-//                            self.present(nextView, animated: true, completion: nil)
                         }
                     }
                 }

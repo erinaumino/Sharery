@@ -20,7 +20,10 @@ class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewD
     var postArray: [PostData] = []
     // FIRDatabaseのobserveEventの登録状態を表す
     var observing = false
-
+    
+    var contentArray: [FIRDataSnapshot] = [] //Fetchしたデータを入れておく配列、この配列をTableViewで表示
+    var ref:FIRDatabaseReference!
+    
     @IBAction func SegmentedControl(_ sender: UISegmentedControl) {
         //セグメント番号で条件分岐させる
         //switch sender.selectedSegmentIndex {
@@ -168,9 +171,35 @@ class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         self.tableView.reloadData()
 
-
-
     }
+    //ref = FIRDatabase.database().reference()
+    
+//    //変更したいデータのための変数、CellがタップされるselectedSnapに値が代入される
+//    var selectedSnap: FIRDataSnapshot!
+//    //選択されたCellの番号を引数に取り、contentArrayからその番号の値を取り出し、selectedSnapに代入
+//    //その後遷移
+//    func didSelectRow(selectedIndexPath indexPath: IndexPath) {
+//        //ルートからのchildをユーザーのIDに指定
+//        //ユーザーIDからのchildを選択されたCellのデータのIDに指定
+//        self.selectedSnap = contentArray[indexPath.row]
+//        self.transition()
+//    }
+//    //Cellがタップされると呼ばれる
+//    //上記のdidSelectedRowにタップされたCellのIndexPathを渡す
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        self.didSelectRow(selectedIndexPath: indexPath)
+//    }
+//    //遷移するときに呼ばれる
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toView" {
+//            let view = segue.destination as! ViewController
+//            if let snap = self.selectedSnap {
+//                view.selectedSnap = snap
+//            }
+//        }
+//    }
+
+    
     
 
 

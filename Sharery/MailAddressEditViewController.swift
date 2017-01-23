@@ -41,9 +41,7 @@ class MailAddressEditViewController: UIViewController {
                             
                             // HUDで完了を知らせる
                             SVProgressHUD.showSuccess(withStatus: "メールアドレスを変更しました")
-                            
-                            let storyboard: UIStoryboard = self.storyboard!
-                            let nextView = storyboard.instantiateViewController(withIdentifier: "Setting") as! SettingViewController
+                        
                             self.navigationController?.popViewController(animated: true)                        }
                     }
                 }

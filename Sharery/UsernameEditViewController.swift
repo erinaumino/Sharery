@@ -37,10 +37,7 @@ class UsernameEditViewController: UIViewController {
                     // HUDで完了を知らせる
                     SVProgressHUD.showSuccess(withStatus: "表示名を変更しました")
                     
-                    let storyboard: UIStoryboard = self.storyboard!
-                    let nextView = storyboard.instantiateViewController(withIdentifier: "Setting") as! SettingViewController
                     self.navigationController?.popViewController(animated: true)
-//                    self.present(nextView, animated: true, completion: nil)
 
                 }
             } else {

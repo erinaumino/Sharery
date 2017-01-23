@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 class ProfileData: NSObject {
     var id: String?
-    var userid: String?
+    //var userid: String?
     var image: UIImage?
     var imageString: String?
     var profile: String?
@@ -27,7 +27,7 @@ class ProfileData: NSObject {
         
         let valueDictionary = snapshot.value as! [String: AnyObject]
         
-        self.userid = valueDictionary["userid"] as? String
+        //self.userid = valueDictionary["userid"] as? String
         
         imageString = valueDictionary["image"] as? String
         image = UIImage(data: NSData(base64Encoded: imageString!, options: .ignoreUnknownCharacters)! as Data)

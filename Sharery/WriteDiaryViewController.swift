@@ -18,25 +18,28 @@ class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var datepicker: UIDatePicker!
     
-    var imageData = ""
-    var imageString = ""
-    
     @IBAction func editButton(_ sender: Any) {
-        // ImageViewから画像を取得する
-        //guard let image = UIImage else { return }
-        let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
-        let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
-        
         // postDataに必要な情報を取得しておく
         let time = datepicker.date
-
+        
         //let time = NSDate.timeIntervalSinceReferenceDate
         let name = FIRAuth.auth()?.currentUser?.displayName
         
-        // 辞書を作成してFirebaseに保存する
-        let postRef = FIRDatabase.database().reference().child(Const.PostPath)
-        let postData = ["title": titleTextField.text!, "diary": diaryTextview.text!, "image": imageString, "time": String(describing: time), "name": name!] as [String : Any]
-        postRef.childByAutoId().setValue(postData)
+        // ImageViewから画像を取得する
+        if let image = imageView.image{
+            let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
+            let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
+            // 辞書を作成してFirebaseに保存する
+            let postRef = FIRDatabase.database().reference().child(Const.PostPath)
+            let postData = ["title": titleTextField.text!, "diary": diaryTextview.text!, "image": imageString, "time": String(describing: time), "name": name!] as [String : Any]
+            postRef.childByAutoId().setValue(postData)
+            
+        }else {
+            // 辞書を作成してFirebaseに保存する
+            let postRef = FIRDatabase.database().reference().child(Const.PostPath)
+            let postData = ["title": titleTextField.text!, "diary": diaryTextview.text!, "time": String(describing: time), "name": name!] as [String : Any]
+            postRef.childByAutoId().setValue(postData)
+        }
         
         // HUDで投稿完了を表示する
         SVProgressHUD.showSuccess(withStatus: "投稿しました")
@@ -45,7 +48,7 @@ class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate
         
         titleTextField.text = ""
         diaryTextview.text = ""
-        imageView.image = nil
+        //imageView.image = nil
         //datepicker
 
 

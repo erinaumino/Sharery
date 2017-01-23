@@ -12,8 +12,8 @@ import FirebaseDatabase
 
 class PostData: NSObject {
     var id: String?
-    var image: UIImage?
-    var imageString: String?
+    var image: UIImage? = nil
+    var imageString: String? = nil
     var name: String?
     var title: String?
     var diary: String?
@@ -24,9 +24,6 @@ class PostData: NSObject {
         self.id = snapshot.key
         
         let valueDictionary = snapshot.value as! [String: AnyObject]
-        
-        imageString = valueDictionary["image"] as? String
-        image = UIImage(data: NSData(base64Encoded: imageString!, options: .ignoreUnknownCharacters)! as Data)
         
         self.name = valueDictionary["name"] as? String
         
@@ -42,7 +39,10 @@ class PostData: NSObject {
             formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
             self.date = formatter.date(from: time) // Returns "Jul 27, 2015, 12:29 PM" PST
         }
-
+        
+        imageString = valueDictionary["image"] as? String
+        guard let imageString = imageString else { return }
+        image = UIImage(data: NSData(base64Encoded: imageString, options: .ignoreUnknownCharacters)! as Data)
         
     }
 }

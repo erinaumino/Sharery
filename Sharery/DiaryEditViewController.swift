@@ -23,9 +23,9 @@ class DiaryEditViewController: UIViewController {
         
         titleTextField.text = post?.title
         DiaryTextView.text = post?.diary
-        photoImageView.image = post?.image
         datePicker.date = (post?.date)!
-        
+        guard let image = post?.image else { return }
+           photoImageView.image = post?.image
     }
 
     override func didReceiveMemoryWarning() {

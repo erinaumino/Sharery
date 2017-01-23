@@ -58,13 +58,13 @@ class ProfileEditViewController: UIViewController, UITextViewDelegate {
         //setValueでデータを送信する。第一引数に送信したいデータを辞書型で入れる
         //今回は記入内容と一緒にユーザーIDと時間を入れる
         //FIRServerValue.timestamp()で現在時間を取る
-        self.ref.child((FIRAuth.auth()?.currentUser?.uid)!).childByAutoId().setValue(["userid": (FIRAuth.auth()?.currentUser?.uid)!,"profile": text])
+        self.ref.child(Const.ProfilePath).child((FIRAuth.auth()?.currentUser?.uid)!).childByAutoId().setValue(["profile": text])
     }
     
     func read()  {
         //FIRDataEventTypeを.Valueにすることにより、なにかしらの変化があった時に、実行
         //今回は、childでユーザーIDを指定することで、ユーザーが投稿したデータの一つ上のchildまで指定することになる
-        ref.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.value, with: {(snapShots) in
+        ref.child(Const.ProfilePath).child((FIRAuth.auth()?.currentUser?.uid)!).observe(.value, with: {(snapShots) in
             if snapShots.children.allObjects is [FIRDataSnapshot] {
                 print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
                 
@@ -88,7 +88,7 @@ class ProfileEditViewController: UIViewController, UITextViewDelegate {
                 contentArray.append(item as! FIRDataSnapshot)
             }
             // ローカルのデータベースを更新
-            ref.child((FIRAuth.auth()?.currentUser?.uid)!).keepSynced(true)
+            ref.child(Const.ProfilePath).child((FIRAuth.auth()?.currentUser?.uid)!).keepSynced(true)
             //テーブルビューをリロード
             let item = contentArray[contentArray.count - 1].value as! Dictionary<String, AnyObject>
             profileTextView.text = item["profile"] as! String!

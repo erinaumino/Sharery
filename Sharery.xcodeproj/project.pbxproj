@@ -248,6 +248,7 @@
 				TargetAttributes = {
 					80205DD81E265A16004AE317 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = JVQD32T43P;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -488,6 +489,7 @@
 			baseConfigurationReference = 90C58E7DC861D53208AA475E /* Pods-Sharery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JVQD32T43P;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Sharery",
@@ -506,6 +508,7 @@
 			baseConfigurationReference = 40704934D8959015A0C697AF /* Pods-Sharery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JVQD32T43P;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Sharery",

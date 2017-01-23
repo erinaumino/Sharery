@@ -18,7 +18,6 @@ class ProfileEditViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var profileTextView: UITextView!
     
     var post: [ProfileData] = []
-    //var post:ProfileData? = nil
     var snap: FIRDataSnapshot!
     var contentArray: [FIRDataSnapshot] = [] //Fetchしたデータを入れておく配列、この配列をTableViewで表示
 
@@ -59,7 +58,7 @@ class ProfileEditViewController: UIViewController, UITextViewDelegate {
         //setValueでデータを送信する。第一引数に送信したいデータを辞書型で入れる
         //今回は記入内容と一緒にユーザーIDと時間を入れる
         //FIRServerValue.timestamp()で現在時間を取る
-        self.ref.child((FIRAuth.auth()?.currentUser?.uid)!).childByAutoId().setValue(["user": (FIRAuth.auth()?.currentUser?.uid)!,"profile": text])
+        self.ref.child((FIRAuth.auth()?.currentUser?.uid)!).childByAutoId().setValue(["userid": (FIRAuth.auth()?.currentUser?.uid)!,"profile": text])
     }
     
     func read()  {
@@ -102,7 +101,6 @@ class ProfileEditViewController: UIViewController, UITextViewDelegate {
         self.read()
         
         profileTextView.delegate = self //デリゲートをセット
-        //profileTextView.detaSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {

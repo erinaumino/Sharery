@@ -9,12 +9,23 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import SVProgressHUD
 
 class SettingViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AdobeUXImageEditorViewControllerDelegate{
+    
+    //let ref = FIRDatabase.database().reference() //Firebaseのルートを宣言しておく
+    var ref:FIRDatabaseReference!
     
     @IBOutlet weak var profilephoto: UIImageView!
     @IBOutlet weak var mailaddressLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    
+    var post: [ProfileData] = []
+    var snap: FIRDataSnapshot!
+    var contentArray: [FIRDataSnapshot] = [] //Fetchしたデータを入れておく配列、この配列をTableViewで表示
+    var imageData = ""
+    var imageString = ""
+
     
     @IBAction func photoeditButton(_ sender: Any) {
         // アラートを作成
@@ -79,14 +90,13 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate,UI
     func photoEditor(_ editor: AdobeUXImageEditorViewController, finishedWith image: UIImage?) {
         // 画像加工画面を閉じる
         editor.dismiss(animated: true, completion: nil)
+        profilephoto.image = image
+    
+        //投稿のためのメソッド
+        create()
         
-        // 投稿の画面を開く
-        //let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
-        //postViewController.image = image
-        //present(postViewController, animated: true, completion: nil)
-        let user = FIRAuth.auth()?.currentUser
-
-
+        // HUDで完了を知らせる
+        SVProgressHUD.showSuccess(withStatus: "プロフィール画像を変更しました")
     }
     
     // AdobeImageEditorで加工をキャンセルしたときに呼ばれる
@@ -113,6 +123,9 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //データを読み込むためのメソッド
+        self.read()
+        
         // 表示名を取得してTextFieldに設定する
         let user = FIRAuth.auth()?.currentUser
         if let user = user {
@@ -126,15 +139,57 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate,UI
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //データの送信のメソッド
+    func create() {
+        //textFieldになにも書かれてない場合は、その後の処理をしない
+        guard let image = profilephoto.image else { return }
+        
+        let imageData = UIImageJPEGRepresentation(profilephoto.image!, 0.5)
+        let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
+        
+        //ロートからログインしているユーザーのIDをchildにしてデータを作成
+        //childByAutoId()でユーザーIDの下に、IDを自動生成してその中にデータを入れる
+        //setValueでデータを送信する。第一引数に送信したいデータを辞書型で入れる
+        ref = FIRDatabase.database().reference()
+        self.ref.child(Const.PhotoPath).child((FIRAuth.auth()?.currentUser?.uid)!).childByAutoId().setValue(["image": imageString])
     }
-    */
+    
+    func read()  {
+        ref = FIRDatabase.database().reference()
+        //FIRDataEventTypeを.Valueにすることにより、なにかしらの変化があった時に、実行
+        //今回は、childでユーザーIDを指定することで、ユーザーが投稿したデータの一つ上のchildまで指定することになる
+        ref.child(Const.PhotoPath).child((FIRAuth.auth()?.currentUser?.uid)!).observe(.value, with: {(snapShots) in
+            if snapShots.children.allObjects is [FIRDataSnapshot] {
+                print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
+                
+                print("snapShot...\(snapShots)") //読み込んだデータをプリント
+                
+                self.snap = snapShots
+                
+            }
+            self.reload(snap: self.snap)
+        })
+    }
+    
+    //読み込んだデータは最初すべてのデータが一つにまとまっているので、それらを分割して、配列に入れる
+    func reload(snap: FIRDataSnapshot) {
+        if snap.exists() {
+            print(snap)
+            //FIRDataSnapshotが存在するか確認
+            contentArray.removeAll()
+            //1つになっているFIRDataSnapshotを分割し、配列に入れる
+            for item in snap.children {
+                contentArray.append(item as! FIRDataSnapshot)
+            }
+            // ローカルのデータベースを更新
+            ref = FIRDatabase.database().reference()
+            ref.child(Const.PhotoPath).child((FIRAuth.auth()?.currentUser?.uid)!).keepSynced(true)
+            //テーブルビューをリロード
+            let item = contentArray[contentArray.count - 1].value as! Dictionary<String, AnyObject>
+            let imageString = item["image"] as? String
+            profilephoto.image = UIImage(data: NSData(base64Encoded: imageString!, options: .ignoreUnknownCharacters)! as Data)
+        }
+    }
+
 
 }

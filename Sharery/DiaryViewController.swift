@@ -34,7 +34,7 @@ class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+ 
         tableView.delegate = self
         tableView.dataSource = self
         

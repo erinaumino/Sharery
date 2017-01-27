@@ -18,41 +18,23 @@ class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var datepicker: UIDatePicker!
     
+    var ref:FIRDatabaseReference!
+    var snap: FIRDataSnapshot!
+    var contentArray: [FIRDataSnapshot] = [] //Fetchしたデータを入れておく配列、この配列をTableViewで表示
+    
     @IBAction func editButton(_ sender: Any) {
-        // postDataに必要な情報を取得しておく
-        let time = datepicker.date
-        
-        //let time = NSDate.timeIntervalSinceReferenceDate
-        let name = FIRAuth.auth()?.currentUser?.displayName
-        
-        // ImageViewから画像を取得する
-        if let image = imageView.image{
-            let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
-            let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
-            // 辞書を作成してFirebaseに保存する
-            let postRef = FIRDatabase.database().reference().child(Const.PostPath)
-            let postData = ["title": titleTextField.text!, "diary": diaryTextview.text!, "image": imageString, "time": String(describing: time), "name": name!] as [String : Any]
-            postRef.childByAutoId().setValue(postData)
-            
-        }else {
-            // 辞書を作成してFirebaseに保存する
-            let postRef = FIRDatabase.database().reference().child(Const.PostPath)
-            let postData = ["title": titleTextField.text!, "diary": diaryTextview.text!, "time": String(describing: time), "name": name!] as [String : Any]
-            postRef.childByAutoId().setValue(postData)
-        }
+        //投稿のためのメソッド
+        create()
         
         // HUDで投稿完了を表示する
         SVProgressHUD.showSuccess(withStatus: "投稿しました")
-
+        
         self.tabBarController?.selectedIndex = 0
         
         titleTextField.text = ""
         diaryTextview.text = ""
-        //imageView.image = nil
+        imageView.image = nil
         //datepicker
-
-
-
     }
     
     @IBAction func camera(_ sender: Any) {
@@ -85,7 +67,7 @@ class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate
         
         // アラート表示
         self.present(alert, animated: true, completion: nil)
-
+        
     }
     
     // 写真を撮影/選択したときに呼ばれるメソッド
@@ -120,16 +102,8 @@ class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate
         // 画像加工画面を閉じる
         editor.dismiss(animated: true, completion: nil)
         
-        // 投稿の画面を開く
-        //let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
-        //postViewController.image = image
-        //present(postViewController, animated: true, completion: nil)
-        // 受け取った画像をImageViewに設定する
         imageView.image = image
-        
-//        imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
-//        imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
-
+                
     }
     
     // AdobeImageEditorで加工をキャンセルしたときに呼ばれる
@@ -137,22 +111,83 @@ class WriteDiaryViewController: UIViewController,UIImagePickerControllerDelegate
         // 加工画面を閉じる
         editor.dismiss(animated: true, completion: nil)
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-//        titleTextField.text = post?.title
-//        diaryTextview.text = post?.diary
-        //imageView.image = post?.image
-        //datepicker
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
+    
+    
+    //データの送信のメソッド
+    func create() {
+        ref = FIRDatabase.database().reference()
+        var postData = [String : Any]()
+        //textFieldになにも書かれてない場合は、その後の処理をしない
+        // postDataに必要な情報を取得しておく
+        let time = datepicker.date
+        
+        //let time = NSDate.timeIntervalSinceReferenceDate
+        let name = FIRAuth.auth()?.currentUser?.displayName
+        
+        // ImageViewから画像を取得する
+        if let image = imageView.image{
+            let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
+            let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
+            // 辞書を作成してFirebaseに保存する
+            postData = ["title": titleTextField.text!, "diary": diaryTextview.text!, "image": imageString, "time": String(describing: time), "name": name!] as [String : Any]
+        }else {
+            // 辞書を作成してFirebaseに保存する
+            postData = ["title": titleTextField.text!, "diary": diaryTextview.text!, "time": String(describing: time), "name": name!] as [String : Any]
+        }
+        ref.child(Const.PostPath).child((FIRAuth.auth()?.currentUser?.uid)!).childByAutoId().setValue(postData)
+        
+    }
+    
+    func read()  {
+        ref = FIRDatabase.database().reference()
+        //FIRDataEventTypeを.Valueにすることにより、なにかしらの変化があった時に、実行
+        //今回は、childでユーザーIDを指定することで、ユーザーが投稿したデータの一つ上のchildまで指定することになる
+        ref.child(Const.PostPath).child((FIRAuth.auth()?.currentUser?.uid)!).observe(.value, with: {(snapShots) in
+            if snapShots.children.allObjects is [FIRDataSnapshot] {
+                print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
+                
+                print("snapShot...\(snapShots)") //読み込んだデータをプリント
+                
+                self.snap = snapShots
+                
+            }
+            //self.reload(snap: self.snap)
+        })
+    }
+    //
+    //    //読み込んだデータは最初すべてのデータが一つにまとまっているので、それらを分割して、配列に入れる
+    //    func reload(snap: FIRDataSnapshot) {
+    //        if snap.exists() {
+    //            print(snap)
+    //            //FIRDataSnapshotが存在するか確認
+    //            contentArray.removeAll()
+    //            //1つになっているFIRDataSnapshotを分割し、配列に入れる
+    //            for item in snap.children {
+    //                contentArray.append(item as! FIRDataSnapshot)
+    //            }
+    //            // ローカルのデータベースを更新
+    //            ref = FIRDatabase.database().reference()
+    //            ref.child(Const.PostPath).child((FIRAuth.auth()?.currentUser?.uid)!).keepSynced(true)
+    //            //テーブルビューをリロード
+    //            let item = contentArray[contentArray.count - 1].value as! Dictionary<String, AnyObject>
+    //            let imageString = item["image"] as? String
+    //            profilephoto.image = UIImage(data: NSData(base64Encoded: imageString!, options: .ignoreUnknownCharacters)! as Data)
+    //        }
+    //    }
+    
+    
+    
 }
 

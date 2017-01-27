@@ -13,6 +13,7 @@ import SVProgressHUD
 
 class DiaryEditViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AdobeUXImageEditorViewControllerDelegate {
 
+
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var DiaryTextView: UITextView!
     @IBOutlet weak var photoImageView: UIImageView!

@@ -40,36 +40,25 @@
                                     <action selector="SegmentedControl:" destination="9pv-A4-QxB" eventType="valueChanged" id="0B6-Hg-yLA"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kbp-Fo-Kr6">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTv-5A-ctb">
                                 <rect key="frame" x="0.0" y="112" width="375" height="506"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="default" indentationWidth="10" rowHeight="100" id="FIN-Dg-1EX" customClass="PostTableViewCell" customModule="Sharery" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FIN-Dg-1EX" id="GAu-z7-qpw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="kbp-Fo-Kr6" secondAttribute="trailing" id="0cb-ir-IVi"/>
+                            <constraint firstAttribute="trailing" secondItem="ZTv-5A-ctb" secondAttribute="trailing" id="2AD-NH-pmJ"/>
                             <constraint firstItem="kph-f2-tMs" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="10" id="3zF-7p-2bG"/>
-                            <constraint firstItem="kbp-Fo-Kr6" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="5Q6-2y-mUh"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="kbp-Fo-Kr6" secondAttribute="bottom" id="K5g-qN-TJ7"/>
-                            <constraint firstItem="kbp-Fo-Kr6" firstAttribute="top" secondItem="kph-f2-tMs" secondAttribute="bottom" constant="10" id="QfC-rZ-rcI"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="ZTv-5A-ctb" secondAttribute="bottom" id="Ier-at-1hF"/>
                             <constraint firstItem="kph-f2-tMs" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="SjV-g9-cMm"/>
+                            <constraint firstItem="ZTv-5A-ctb" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="kEd-xZ-fpR"/>
+                            <constraint firstItem="ZTv-5A-ctb" firstAttribute="top" secondItem="kph-f2-tMs" secondAttribute="bottom" constant="10" id="scs-h5-8UG"/>
                             <constraint firstItem="kph-f2-tMs" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="vv0-Ng-oVQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="10i-g8-34K"/>
                     <connections>
-                        <outlet property="tableView" destination="kbp-Fo-Kr6" id="o5m-k9-ojZ"/>
+                        <outlet property="contentView" destination="ZTv-5A-ctb" id="uRK-8M-gVI"/>
                         <segue destination="Yt8-RA-Yr3" kind="show" id="gHq-xS-euq"/>
                     </connections>
                 </viewController>

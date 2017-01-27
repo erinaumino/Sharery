@@ -13,9 +13,10 @@ import SVProgressHUD
 import CoreBluetooth
 
 class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-    @IBOutlet weak var tableView: UITableView!
-    
-    var postData: [PostData] = []
+    var tableView: UITableView!
+    @IBOutlet weak var contentView: UIView!
+    var calemdarView:UIView!
+    var calenderView:UICollectionView!
     
     var postArray: [PostData] = []
     // FIRDatabaseのobserveEventの登録状態を表す
@@ -24,20 +25,47 @@ class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewD
     var contentArray: [FIRDataSnapshot] = [] //Fetchしたデータを入れておく配列、この配列をTableViewで表示
     var ref:FIRDatabaseReference!
     
+    var snap: FIRDataSnapshot!
+    
+    
+    //var item: Dictionary<String, String> = [:]
+    var TITLE: String = ""
+    var DIARY: String = ""
+    var TIME: String = ""
+    //var NAME: String = ""
+    var IMAGE: String = ""
+    
     @IBAction func SegmentedControl(_ sender: UISegmentedControl) {
         //セグメント番号で条件分岐させる
-        //switch sender.selectedSegmentIndex {
-        //case 0:
+        let views = contentView.subviews
+        for view in views{
+            view.removeFromSuperview()
+        }
+        
+        switch sender.selectedSegmentIndex {
+        case 1:
             
-        //case 1:
-            
-        //case 2:
-        //}
-    }
+            contentView.addSubview(calemdarView)
+            break
+        
 
+        default:
+            contentView.addSubview(tableView)
+            break
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        self.read()
+        calemdarView = UIView()
+        calemdarView.frame = contentView.bounds
+        calemdarView.backgroundColor = UIColor.red
+        calenderView = UICollectionView()
+        
+        tableView = UITableView()
+        tableView.frame = contentView.bounds
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -47,6 +75,9 @@ class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewD
         let nib = UINib(nibName: "PostTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        contentView.addSubview(tableView)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +87,7 @@ class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewD
         if FIRAuth.auth()?.currentUser != nil {
             if self.observing == false {
                 // 要素が追加されたらpostArrayに追加してTableViewを再表示する
-                let postsRef = FIRDatabase.database().reference().child(Const.PostPath)
+                let postsRef = FIRDatabase.database().reference().child(Const.PostPath).child((FIRAuth.auth()?.currentUser?.uid)!)
                 postsRef.observe(.childAdded, with: { snapshot in
                     print("DEBUG_PRINT: .childAddedイベントが発生しました。")
                     
@@ -116,8 +147,8 @@ class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
         }
     }
-
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -160,7 +191,7 @@ class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath.row]
@@ -170,40 +201,78 @@ class DiaryViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.navigationController?.pushViewController(nextViewController, animated: true)
         
         self.tableView.reloadData()
-
+        
     }
-    //ref = FIRDatabase.database().reference()
-    
-//    //変更したいデータのための変数、CellがタップされるselectedSnapに値が代入される
-//    var selectedSnap: FIRDataSnapshot!
-//    //選択されたCellの番号を引数に取り、contentArrayからその番号の値を取り出し、selectedSnapに代入
-//    //その後遷移
-//    func didSelectRow(selectedIndexPath indexPath: IndexPath) {
-//        //ルートからのchildをユーザーのIDに指定
-//        //ユーザーIDからのchildを選択されたCellのデータのIDに指定
-//        self.selectedSnap = contentArray[indexPath.row]
-//        self.transition()
-//    }
-//    //Cellがタップされると呼ばれる
-//    //上記のdidSelectedRowにタップされたCellのIndexPathを渡す
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.didSelectRow(selectedIndexPath: indexPath)
-//    }
-//    //遷移するときに呼ばれる
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toView" {
-//            let view = segue.destination as! ViewController
-//            if let snap = self.selectedSnap {
-//                view.selectedSnap = snap
-//            }
-//        }
-//    }
-
     
     
-
-
-
-
+    
+    
+    func read()  {
+        ref = FIRDatabase.database().reference()
+        //FIRDataEventTypeを.Valueにすることにより、なにかしらの変化があった時に、実行
+        //今回は、childでユーザーIDを指定することで、ユーザーが投稿したデータの一つ上のchildまで指定することになる
+        ref.child(Const.PostPath).child((FIRAuth.auth()?.currentUser?.uid)!).observe(.value, with: {(snapShots) in
+            if snapShots.children.allObjects is [FIRDataSnapshot] {
+                print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
+                
+                print("snapShot...\(snapShots)") //読み込んだデータをプリント
+                
+                self.snap = snapShots
+                
+            }
+            self.reload(snap: self.snap)
+        })
+    }
+    
+    //読み込んだデータは最初すべてのデータが一つにまとまっているので、それらを分割して、配列に入れる
+    func reload(snap: FIRDataSnapshot) {
+        if snap.exists() {
+            print(snap)
+            //FIRDataSnapshotが存在するか確認
+            contentArray.removeAll()
+            //1つになっているFIRDataSnapshotを分割し、配列に入れる
+            for item in snap.children {
+                contentArray.append(item as! FIRDataSnapshot)
+            }
+            // ローカルのデータベースを更新
+            ref = FIRDatabase.database().reference()
+            ref.child(Const.PostPath).child((FIRAuth.auth()?.currentUser?.uid)!).keepSynced(true)
+            //テーブルビューをリロード
+            let item = contentArray[contentArray.count - 1].value as! Dictionary<String, AnyObject>
+            //            TITLE = item["title"] as! String!
+            //            DIARY = item["diary"] as! String!
+            //            TIME = item["time"] as! String!
+            //            IMAGE = item["image"] as! String!
+            //guard let IMAGE = IMAGE else { return }
+            //image = UIImage(data: NSData(base64Encoded: imageString, options: .ignoreUnknownCharacters)! as Data)
+            
+        }
+        self.Bluetooth()
+    }
+    
+    func Bluetooth() {
+        P2PConnectivity.manager.start(
+            serviceType: "MIKE-SIMPLE-P2P",
+            displayName: UIDevice.current.name,
+            stateChangeHandler: { state in
+                //                        P2PConnectivity.manager.send(message: self.TITLE)
+                //                        P2PConnectivity.manager.send(message: self.DIARY)
+                //                        P2PConnectivity.manager.send(message: self.TIME)
+                //                        P2PConnectivity.manager.send(message: self.IMAGE)
+                //P2PConnectivity.manager.send(message: self.item)
+                
+        }, recieveHandler: { data in
+            
+            //let array = data.componentsSeparatedByString(",")
+            var postData = ["title": data]
+            postData["diary"] = data
+            postData["time"] = data
+            print("AAAAAAAAAAAA\(postData)")
+            //写真は一度Stringにしてデータを渡してから、受け取った先でimageに変換して辞書に保存
+            
+        }
+        )
+        
+    }
+    
 }
-
